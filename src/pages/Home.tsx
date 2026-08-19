@@ -21,8 +21,9 @@ export default function Home() {
     <>
       <EventStrip />
 
-      {/* X1 · HERO — typographic; no lifestyle photography above the fold. */}
+      {/* X1 · HERO */}
       <section className="x-hero">
+        <img className="herobg" src="/assets/photos/instructor-lecture-hall-1600.jpg" alt="" aria-hidden="true" loading="eager" decoding="async" />
         <div className="wrap">
           <div className="x-hero-grid">
             <motion.div variants={stagger} initial="hidden" animate="show">

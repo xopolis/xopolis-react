@@ -17,6 +17,21 @@
   border-radius: 4px;
 }
 
+/* Hero background photo — a subtle texture behind the dark hero. Sits below the
+   ::after colour glows and below the content/graph (.wrap is z-index:1); the low
+   opacity over the --grad-dark base keeps the headline + graph fully legible. */
+.x-hero > img.herobg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
 /* Hero knowledge-graph canvas — occupies the same 3:2 box the old node-field
    did (right column of the hero grid). Full-opacity (unlike the .5-dimmed
    .x-deco) so the animated graph reads clearly on the dark hero. */
