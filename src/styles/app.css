@@ -17,6 +17,22 @@
   border-radius: 4px;
 }
 
+/* Hero knowledge-graph canvas — occupies the same 3:2 box the old node-field
+   did (right column of the hero grid). Full-opacity (unlike the .5-dimmed
+   .x-deco) so the animated graph reads clearly on the dark hero. */
+.hero-graph {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 600 / 400;
+}
+.hero-graph-cv {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* ---- Logo marquee -------------------------------------------------------- */
 /* A seamless, infinitely-scrolling strip of partner logos. The track holds two
    copies of the set and slides left by exactly one copy width, so it loops with

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../lib/animations'
-import { NodeField } from '../components/NodeField'
+import { HeroGraph } from '../components/HeroGraph'
 import { EventStrip } from '../components/EventStrip'
 import { LogoMarquee } from '../components/LogoMarquee'
 import './home.css'
@@ -60,9 +60,7 @@ export default function Home() {
               </motion.p>
             </motion.div>
 
-            <div className="x-deco" aria-hidden="true">
-              <NodeField />
-            </div>
+            <HeroGraph />
           </div>
           <p className="bridge">Three platforms, built on the same idea.</p>
         </div>
