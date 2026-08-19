@@ -20,23 +20,33 @@
 /* Hero knowledge-graph canvas — occupies the same 3:2 box the old node-field
    did (right column of the hero grid). Full-opacity (unlike the .5-dimmed
    .x-deco) so the animated graph reads clearly on the dark hero. */
-.hero-graph {
-  position: relative;
-  width: 100%;
-  min-height: 320px;
+.hero-graph { position: relative; width: 100%; }
+/* Inline SVG sizes itself from the viewBox — reliable in the grid column. */
+.hero-graph-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.hero-graph-svg .hg-edges line { stroke-width: 0.6; opacity: 0.45; }
+.hero-graph-svg .hg-nodes circle {
+  fill: #7ea9f2;
+  opacity: 0.9;
+  animation: hg-twinkle 4.5s ease-in-out infinite;
 }
-/* Guarantee a 3:2 box even as a grid item (aspect-ratio alone collapsed here). */
-.hero-graph::before {
-  content: '';
-  display: block;
-  padding-top: 66.6667%;
+.hero-graph-svg .hg-nodes circle.hub { fill: #b9abf7; opacity: 1; }
+
+@keyframes hg-twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.95; }
 }
-.hero-graph-cv {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+.hg-drift {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hg-drift 28s ease-in-out infinite;
+}
+@keyframes hg-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-9px, 7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hg-drift, .hero-graph-svg .hg-nodes circle { animation: none; }
 }
 
 /* ---- Logo marquee -------------------------------------------------------- */
