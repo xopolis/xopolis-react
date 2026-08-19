@@ -5,13 +5,16 @@
 /* Route transition wrapper never constrains layout. */
 .route-view { display: block; }
 
-/* EDUCAUSE mark in the event strip — sits inline before the event copy. */
-.event-logo {
-  height: 18px;
+/* EDUCAUSE mark in the event strip — sits inline before the event copy.
+   The shared brand.css sets `img{display:block}`, which would push the logo onto
+   its own line; force inline-block + middle alignment so it rides with the text. */
+.event-strip .event-logo {
+  display: inline-block;
+  height: 22px;
   width: auto;
-  vertical-align: -4px;
-  margin-right: 9px;
-  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 4px;
 }
 
 /* ---- Logo marquee -------------------------------------------------------- */
@@ -34,7 +37,9 @@
 }
 .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
 .logo-marquee-item { flex: none; margin-right: 60px; }
-.logo-marquee-item img {
+/* Extra specificity (.logo-marquee …) so these win over the page's own
+   `.x-partners img{height:32px;filter:…}` rule regardless of stylesheet order. */
+.logo-marquee .logo-marquee-item img {
   display: block;
   height: 42px;
   width: auto;
@@ -43,7 +48,7 @@
   opacity: 0.72;
   transition: filter 0.25s ease, opacity 0.25s ease;
 }
-.logo-marquee-item img:hover { filter: none; opacity: 1; }
+.logo-marquee .logo-marquee-item img:hover { filter: none; opacity: 1; }
 
 @keyframes logo-marquee {
   from { transform: translateX(0); }
