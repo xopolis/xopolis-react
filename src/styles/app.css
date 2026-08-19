@@ -23,7 +23,13 @@
 .hero-graph {
   position: relative;
   width: 100%;
-  aspect-ratio: 600 / 400;
+  min-height: 320px;
+}
+/* Guarantee a 3:2 box even as a grid item (aspect-ratio alone collapsed here). */
+.hero-graph::before {
+  content: '';
+  display: block;
+  padding-top: 66.6667%;
 }
 .hero-graph-cv {
   position: absolute;
