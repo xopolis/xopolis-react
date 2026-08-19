@@ -2,9 +2,19 @@ import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../lib/animations'
 import { NodeField } from '../components/NodeField'
 import { EventStrip } from '../components/EventStrip'
+import { LogoMarquee } from '../components/LogoMarquee'
 import './home.css'
 
 const vp = { once: true, amount: 0.2 } as const
+
+const PARTNERS = [
+  { src: '/assets/partners/nsf-logo.png', alt: 'National Science Foundation' },
+  { src: '/assets/partners/babson-logo.png', alt: 'Babson College' },
+  { src: '/assets/partners/csuci-logo.png', alt: 'CSU Channel Islands' },
+  { src: '/assets/partners/edc-logo.png', alt: 'EDC' },
+  { src: '/assets/partners/sbdc-logo.png', alt: "America's SBDC" },
+  { src: '/assets/partners/gmu-schar-cmpr-logo.png', alt: 'George Mason University — Schar School, Center for Micro-Economic Policy Research' },
+]
 
 export default function Home() {
   return (
@@ -225,23 +235,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div className="credstrip x-partners" aria-label="Awards, pilot institutions and partners" initial="hidden" whileInView="show" viewport={vp} variants={fadeUp}>
-            <div className="row">
-              <span className="credgrp"><span className="lbl">Award</span><span className="cred">NSF · SBIR Phase I</span></span>
-              <span className="credgrp"><span className="lbl">Pilot institutions</span><span className="cred">Babson College</span><span className="cred">CSU Channel Islands</span></span>
-              <span className="credgrp"><span className="lbl">Program partners</span><span className="cred">EDC</span><span className="cred">SBDC</span></span>
-              <span className="credgrp">
-                <span className="lbl">Research partner</span>
-                <img
-                  src="/assets/xopolis/gmu-schar-cmpr-logo.png"
-                  alt="George Mason University, Schar School — Center for Micro-Economic Policy Research"
-                  width={700}
-                  height={157}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            </div>
+          <motion.div className="credstrip x-partners" initial="hidden" whileInView="show" viewport={vp} variants={fadeUp}>
+            <LogoMarquee logos={PARTNERS} ariaLabel="Award, pilot institutions, and program and research partners" />
             <p className="disclaimer">Institutional affiliations are listed for identification purposes and do not imply institutional endorsement.</p>
           </motion.div>
 

@@ -4,3 +4,62 @@
 
 /* Route transition wrapper never constrains layout. */
 .route-view { display: block; }
+
+/* EDUCAUSE mark in the event strip — sits inline before the event copy. */
+.event-logo {
+  height: 18px;
+  width: auto;
+  vertical-align: -4px;
+  margin-right: 9px;
+  border-radius: 3px;
+}
+
+/* ---- Logo marquee -------------------------------------------------------- */
+/* A seamless, infinitely-scrolling strip of partner logos. The track holds two
+   copies of the set and slides left by exactly one copy width, so it loops with
+   no jump. Grayscale at rest, full colour on hover; pauses on hover; and with
+   prefers-reduced-motion it becomes a static, centered, wrapped row. */
+.logo-marquee {
+  overflow: hidden;
+  width: 100%;
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.logo-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: logo-marquee 34s linear infinite;
+}
+.logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
+.logo-marquee-item { flex: none; margin-right: 60px; }
+.logo-marquee-item img {
+  display: block;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.logo-marquee-item img:hover { filter: none; opacity: 1; }
+
+@keyframes logo-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Reduced motion / static fallback: no animation, wrap and center. */
+.logo-marquee.is-static { -webkit-mask-image: none; mask-image: none; }
+.logo-marquee.is-static .logo-marquee-track {
+  animation: none;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 44px;
+}
+.logo-marquee.is-static .logo-marquee-item { margin-right: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track { animation: none; }
+}

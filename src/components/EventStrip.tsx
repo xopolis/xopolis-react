@@ -7,6 +7,7 @@ export function EventStrip() {
     <div className="event-strip event-strip--top" data-removal-after="2026-10-02">
       <div className="wrap">
         <p>
+          <img className="event-logo" src="/assets/partners/educause-e.jpg" alt="EDUCAUSE" />
           <span className="event-when">
             <span>EDUCAUSE 2026</span> <span>·</span> <span>Denver</span> <span>·</span>{' '}
             <span>Sept 29-Oct 2</span>
