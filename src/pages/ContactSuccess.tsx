@@ -19,7 +19,7 @@ export default function ContactSuccess() {
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
             <h2>Thank you.</h2>
-            <p>If your inquiry is urgent, email <a href="mailto:sales@xopol.is">sales@xopol.is</a>.</p>
+            <p>If your inquiry is urgent, email <a href="mailto:support@xopol.is">support@xopol.is</a>.</p>
             <Link className="btn btn-primary" to="/">Back to Home</Link>
           </div>
         </div>

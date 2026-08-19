@@ -1,0 +1,20 @@
+# Render Blueprint — deploys the Vite build as a Static Site with SPA routing.
+#
+# Fastest path: Render Dashboard → New → Blueprint → connect xopolis/xopolis-react.
+# (Or New → Static Site and copy the Build Command / Publish Directory / Rewrite below.)
+services:
+  - type: web
+    name: xopolis-react
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: true
+    routes:
+      # SPA fallback so client-side routes (/about, /platforms/*, /research, …) resolve.
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable

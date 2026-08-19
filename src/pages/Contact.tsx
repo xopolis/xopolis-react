@@ -32,7 +32,7 @@ export default function Contact() {
 
               <div className="contact-method">
                 <h3>Email</h3>
-                <p><a href="mailto:sales@xopol.is">sales@xopol.is</a></p>
+                <p><a href="mailto:support@xopol.is">support@xopol.is</a></p>
               </div>
 
               <div className="contact-method">
@@ -51,11 +51,20 @@ export default function Contact() {
 
             <div className="contact-form" id="contactFormContainer">
               <h2>Send a Message</h2>
-              <form name="contact-request" method="POST" action="/contact-success" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
-                <input type="hidden" name="form-name" value="contact-request" />
-                <p style={{ display: 'none' }}>
-                  <label>Don't fill this out: <input name="bot-field" /></label>
-                </p>
+              <form action="https://formsubmit.co/support@xopol.is" method="POST" id="contactForm">
+                {/* FormSubmit config — delivers submissions to support@xopol.is, skips
+                    their captcha page, and returns to our /contact-success route on
+                    whatever origin the site is served from. */}
+                <input type="hidden" name="_subject" value="New Xopolis website enquiry" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input
+                  type="hidden"
+                  name="_next"
+                  value={typeof window !== 'undefined' ? `${window.location.origin}/contact-success` : '/contact-success'}
+                />
+                {/* honeypot */}
+                <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
                 <div className="form-group">
                   <label htmlFor="name">Your Name</label>

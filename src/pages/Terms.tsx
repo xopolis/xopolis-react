@@ -121,7 +121,7 @@ export default function Terms() {
         </p>
         <p>
           <strong>Xopolis Inc</strong><br />
-          Email: <a href="mailto:sales@xopol.is">sales@xopol.is</a><br />
+          Email: <a href="mailto:support@xopol.is">support@xopol.is</a><br />
           Herndon, Virginia, United States
         </p>
       </div>
