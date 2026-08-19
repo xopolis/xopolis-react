@@ -28,8 +28,11 @@
   object-fit: cover;
   object-position: center 32%;
   z-index: 0;
-  opacity: 0.35;
+  opacity: 0.4;
   pointer-events: none;
+  /* Soften into a background texture; scale up so the blur doesn't fade the edges. */
+  filter: blur(10px);
+  transform: scale(1.1);
 }
 
 /* Hero knowledge-graph canvas — occupies the same 3:2 box the old node-field
