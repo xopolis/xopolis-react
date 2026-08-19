@@ -1,0 +1,1454 @@
+{
+  "library": "HeuriSight xResearch",
+  "updated": "2026-08-05",
+  "note": "The DOM of xresearch/index.html is authoritative. This file is a published export that must agree with it; where they disagree the page is right and this file is stale (DESIGN_CONTRACT.md 18.4.5). A12-2026-08-05: rebuilt for the reviewed corpus — 11 working papers, 17 essays, one portfolio synthesis (HS-SYN-2026-01) and one methods and authorship note (HS-MN-2026-01), against XRESEARCH_PUBLICATION_REGISTER.md. `synthesis` and `methods` are the third and fourth document types and the third and fourth filename prefixes (`syn-`, `mn-`). HS-WP-2026-07 and HS-WP-2026-08A were previously LISTED, not published, for two reasons that the rewrite closed: WP-07's own release gate (its front matter now states the public/internal split and reports no HeuriSight outcome) and DESIGN_CONTRACT 18.3.2 clause 3, which bars a HeuriSight pilot figure from any paper or essay. Both now carry pages, slugs, source records and derived fields, and lose their `status` line — sec 19.7.5's promised transition, costing one href per node. Every edge here was read back off the DOM by the script that wrote this file, and every document-to-document edge on that page was derived by scanning the delivered Markdown for a real link: no edge is authored. Slugs of the nineteen already-published pages are unchanged even where the rewrite changed the title (WP-04, WP-06, Essay 12, Essay 13) — sec 18.4.2, the URL is a promise. WITHHELD and deliberately absent: the WP-08B preregistration, its cryptographic record and its erratum, under the display register's VAL-02 decision (prototype diagnostics and participant-derived values are not published without an authority the owner has not given) and independently under 18.3.2 clause 3. Their omission does not alter WP-08B's reported non-estimable primary result.",
+  "documents": [
+    {
+      "id": "HS-WP-2026-01",
+      "type": "paper",
+      "title": "What makes an AI tutor help rather than harm?",
+      "slug": "wp-2026-01-ai-tutor-help-vs-harm",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-01",
+      "sources": "data/wp-2026-01-sources.json",
+      "licenses": "Generic assistance can improve current work while harming later independent performance.",
+      "strength": "Conditional",
+      "measures": [
+        "cognitive-offloading",
+        "scaffolding-and-fading",
+        "self-explanation",
+        "teacher-grounding",
+        "transfer-after-withdrawal",
+        "worked-examples"
+      ],
+      "cited_from": [
+        "essay-2026-01-the-tutor-disappears-at-exam-time.html",
+        "essay-2026-09-the-professor-remains.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "In the one large preregistered classroom trial, a generic tutor left students 17% below the no-AI control on the following unassisted exam, and a teacher-grounded tutor that required work and withheld answers removed that loss without producing a gain of its own. Across the withdrawal studies the results run from negative to null to positive, so the design question is what a student is asked to do once the assistance is taken away."
+    },
+    {
+      "id": "HS-WP-2026-02",
+      "type": "paper",
+      "title": "Capturing expert judgment: what is actually known",
+      "slug": "wp-2026-02-capturing-expert-judgment",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-02",
+      "sources": "data/wp-2026-02-sources.json",
+      "licenses": "Expert judgment has recoverable structure.",
+      "strength": "Conditional",
+      "measures": [
+        "deliberate-practice",
+        "expert-novice-representation",
+        "knowledge-elicitation"
+      ],
+      "cited_from": [
+        "essay-2026-02-what-the-expert-sees.html",
+        "essay-2026-10-expertise-earns-its-edges.html",
+        "essay-2026-13-choose-the-case-topology.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "Experts do organise problems by relations and governing principles, and structured elicitation can recover real decision points, cues and novice-error patterns from them. No method is a readout: what a decision-point model earns is the standing of a testable, revisable model of practice, not a copy of a mind."
+    },
+    {
+      "id": "HS-WP-2026-03",
+      "type": "paper",
+      "title": "Assessing reasoning, not recall",
+      "slug": "wp-2026-03-assessing-reasoning-not-recall",
+      "date": "2026-08-05",
+      "essay": [
+        "HS-ESSAY-2026-03",
+        "HS-ESSAY-2026-11"
+      ],
+      "sources": "data/wp-2026-03-sources.json",
+      "licenses": "Oral assessment can elicit performances relevant to reasoning. It cannot make reasoning transparent.",
+      "strength": "Conditional",
+      "measures": [
+        "oral-assessment-validity",
+        "retrieval-practice",
+        "self-explanation"
+      ],
+      "cited_from": [
+        "essay-2026-03-when-talk-me-through-it-becomes-an-assessment.html",
+        "essay-2026-09-the-professor-remains.html",
+        "essay-2026-11-oral-assessment-as-measurement.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "Students scored higher on oral versions of comparable questions, which is a difference of mode and not more learning, and neither examiner agreement nor post-deliberation agreement between models is evidence that a score means what it claims. An oral becomes measurement only once the claim, the sampling and the prompt bounds are fixed in advance."
+    },
+    {
+      "id": "HS-WP-2026-04",
+      "type": "paper",
+      "title": "One group grade, four different claims",
+      "slug": "wp-2026-04-group-work-free-rider",
+      "date": "2026-08-05",
+      "essay": [
+        "HS-ESSAY-2026-04",
+        "HS-ESSAY-2026-12"
+      ],
+      "sources": "data/wp-2026-04-sources.json",
+      "licenses": "Making contribution visible is a design hypothesis, not an established effect.",
+      "strength": "Conditional on structure · thin on visibility",
+      "measures": [
+        "contribution-visibility",
+        "individual-accountability"
+      ],
+      "cited_from": [
+        "essay-2026-04-the-group-got-an-a-who-learned.html",
+        "essay-2026-12-grade-the-team-see-the-individuals.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "Structured small-group formats do outperform comparison instruction in undergraduate STEM, but no located higher-education field study shows that making contribution visible changes contribution behaviour — the closest randomised test, transparent peer marking, was null because students would not use it. Product, contribution, individual learning and judgment governance are four claims, and one grade cannot carry them."
+    },
+    {
+      "id": "HS-WP-2026-05",
+      "type": "paper",
+      "title": "Cases, expert modelling and learning to decide",
+      "slug": "wp-2026-05-cases-expert-modelling",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-05",
+      "sources": "data/wp-2026-05-sources.json",
+      "licenses": "Claim the mechanism, not the theatre around it.",
+      "strength": "Conditional on mechanism · thin on the interface",
+      "measures": [
+        "case-based-learning",
+        "contrasting-cases",
+        "self-explanation",
+        "worked-examples"
+      ],
+      "cited_from": [
+        "essay-2026-05-the-case-is-not-the-lesson.html",
+        "essay-2026-10-expertise-earns-its-edges.html",
+        "essay-2026-13-choose-the-case-topology.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "The support belongs to the mechanisms — a case that gives knowledge a job, guided comparison of analogous cases, worked examples that fade as competence grows, role-based practice with feedback — and the positive PBL result for applying knowledge must always travel with its non-robust negative result for acquiring it. Realism of staging is not among the mechanisms."
+    },
+    {
+      "id": "HS-WP-2026-06",
+      "type": "paper",
+      "title": "Assessment integrity after artifact quality, authorship, and competence separate",
+      "slug": "wp-2026-06-assessment-integrity",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-06",
+      "sources": "data/wp-2026-06-sources.json",
+      "licenses": "The paper can remain part of the evidence. It just cannot remain the whole argument.",
+      "strength": "Conditional on redesign · thin on verification",
+      "measures": [
+        "ai-text-detection-reliability",
+        "detection-bias",
+        "multiple-samples-of-performance"
+      ],
+      "cited_from": [
+        "essay-2026-06-when-the-paper-is-no-longer-the-evidence.html",
+        "essay-2026-09-the-professor-remains.html",
+        "essay-2026-11-oral-assessment-as-measurement.html",
+        "essay-2026-12-grade-the-team-see-the-individuals.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html",
+        "wp-2026-04-group-work-free-rider.html"
+      ],
+      "takeaway": "Ordinary markers left 94% of wholly AI-written answers unflagged when they were inserted blind into five live modules, yet detector output is neither proof nor useless: it moves with model, genre, length, threshold and editing, and the evidence of bias against writers using English as an additional language is real. Artifact quality, authorship and independent competence separate, and each needs its own evidence carrier and its own due process."
+    },
+    {
+      "id": "HS-WP-2026-07",
+      "type": "paper",
+      "title": "Evidence before level",
+      "slug": "wp-2026-07-evidence-before-level",
+      "date": "2026-08-05",
+      "essay": [
+        "HS-ESSAY-2026-07",
+        "HS-ESSAY-2026-14"
+      ],
+      "sources": "data/wp-2026-07-sources.json",
+      "licenses": "Locating evidence before assigning a level makes a score auditable. It does not make it valid.",
+      "strength": "Prior art established · incremental effect unmeasured",
+      "novelty_finding": "The precedents rule out any claim that HeuriSight invented evidence-first scoring, and no broad novelty claim is supportable. What the search did not turn up, within the English-language sources read through 4 August 2026, is any peer-reviewed study that separately estimated the effect of an enforced criterion-level requirement for locatable artifact evidence on multilevel scoring of authentic higher-education work and also reported a human inter-rater baseline. That is a bounded gap in the literature, not a claim to have got there first.",
+      "cited_from": [
+        "essay-2026-07-a-score-is-not-an-explanation.html",
+        "essay-2026-14-a-score-is-a-protocol.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "Evidence-first scoring is an established lineage rather than an invention: faculty norming, cue-bottleneck models, rule-based span scoring and recent LLM pipelines all identify evidence before assigning a level. What no located peer-reviewed study has isolated is the incremental effect of enforcing that requirement, and the closest test is an unreviewed preprint that bundles generation with verification — so the strongest honest claim is auditability, not validity."
+    },
+    {
+      "id": "HS-WP-2026-08A",
+      "type": "paper",
+      "title": "Displayed judgment governance in human–AI work",
+      "slug": "wp-2026-08a-displayed-judgment-governance",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-08A",
+      "sources": "data/wp-2026-08a-sources.json",
+      "licenses": "Judgment governance is separable from artifact quality, authorship and AI operative contribution. Separable is not yet measurable.",
+      "strength": "Construct and prior art only · no validation",
+      "novelty_finding": "Our own novelty sentence does not stand intact. Randazzo et al., MI-CCy and LLMography already occupy parts of the ground, and other work we had omitted is closer still. A narrower prospective contribution remains, and it is not yet an accomplished claim.",
+      "cited_from": [
+        "essay-2026-08a-good-work-who-decided.html",
+        "essay-2026-12-grade-the-team-see-the-individuals.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html",
+        "wp-2026-04-group-work-free-rider.html",
+        "wp-2026-08b-when-the-reference-does-not-exist.html"
+      ],
+      "takeaway": "Judgment governance — who retained, exercised, delegated, challenged or revised the consequential decision — is separable from artifact quality, authorship, interaction volume and operative contribution, but the broad ground is already occupied by delegation theory, conjoined-agency models, mixed-initiative frameworks and trace-based direction indicators. What remains is a narrower prospective conjunction that no result here validates."
+    },
+    {
+      "id": "HS-WP-2026-08B",
+      "type": "paper",
+      "title": "When the reference does not exist",
+      "slug": "wp-2026-08b-when-the-reference-does-not-exist",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-08A",
+      "sources": "data/wp-2026-08b-sources.json",
+      "licenses": "An attribution claim needs a reference process independent of the scorer. This archive did not contain one.",
+      "strength": "Adverse · primary endpoint not estimable",
+      "cited_from": [
+        "essay-2026-08a-good-work-who-decided.html",
+        "essay-2026-12-grade-the-team-see-the-individuals.html",
+        "essay-2026-15-why-heurisight.html",
+        "syn-2026-01-from-artifacts-to-evidence.html",
+        "wp-2026-08a-displayed-judgment-governance.html"
+      ],
+      "takeaway": "The preregistered primary endpoint was not estimable: the retrospective archive held one automated interpretation per record and its technical lineage, but no independent human segmentation, no overlapping raters, no pre-adjudication labels and no blinding record, so reliability, attribution error and calibration could not be calculated at all. That is not a finding that reliability is low — it is a finding that this archive cannot establish reliability."
+    },
+    {
+      "id": "HS-WP-2026-09",
+      "type": "paper",
+      "title": "Heuristics as a record of learning",
+      "slug": "wp-2026-09-heuristics-as-a-record-of-learning",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-16",
+      "sources": "data/wp-2026-09-sources.json",
+      "licenses": "Repeated relations among reasoning resources can represent learning-in-process. They do not establish acquisition, transfer or durability.",
+      "strength": "Candidate construct · conditional on validation",
+      "cited_from": [
+        "essay-2026-10-expertise-earns-its-edges.html",
+        "essay-2026-15-why-heurisight.html",
+        "essay-2026-16-the-decisions-between-the-answers.html",
+        "syn-2026-01-from-artifacts-to-evidence.html",
+        "wp-2026-10-human-heuristics-in-the-loop.html"
+      ],
+      "takeaway": "A longitudinal heuristic graph can support an activity record and, if validated, a learning-process representation — but a learning-outcome inference is a third and separate claim requiring retention and transfer evidence. Bayesian Knowledge Tracing has maintained person-specific latent mastery estimates since the 1990s and relational precedents exist, so the residual contribution is an untested integration, not an unoccupied method."
+    },
+    {
+      "id": "HS-WP-2026-10",
+      "type": "paper",
+      "title": "Human Heuristics in the Loop",
+      "slug": "wp-2026-10-human-heuristics-in-the-loop",
+      "date": "2026-08-05",
+      "essay": "HS-ESSAY-2026-17",
+      "sources": "data/wp-2026-10-sources.json",
+      "licenses": "Named, provenance-bearing and contestable expert heuristics define a governed design pattern. No effect of it has been demonstrated.",
+      "strength": "Proposed configuration · no demonstrated effect",
+      "cited_from": [
+        "essay-2026-15-why-heurisight.html",
+        "essay-2026-17-human-judgment-in-the-loop.html",
+        "mn-2026-01-how-this-library-was-written.html",
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "Human presence in an AI workflow does not establish that human judgment shaped the reasoning; HHITL names the narrower pattern in which provenance-bearing, defeasible expert heuristics are available, contestable and separable from enactment and later independent performance. Every component has substantial prior art, no located peer-reviewed study combined the full configuration, and no HHITL effect on learning, quality or complementarity has been demonstrated."
+    },
+    {
+      "id": "HS-ESSAY-2026-01",
+      "type": "essay",
+      "title": "The tutor disappears at exam time",
+      "slug": "essay-2026-01-the-tutor-disappears-at-exam-time",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-01"
+      ],
+      "cited_from": [
+        "../workflows.html#ta",
+        "essay-2026-09-the-professor-remains.html",
+        "wp-2026-01-ai-tutor-help-vs-harm.html"
+      ],
+      "takeaway": "Both AI conditions helped during practice and the guarded tutor helped most; on the closed-book exam that followed, the generic arm scored 17% below the no-AI control and the teacher-grounded arm merely broke even. Judge a tutor on the unassisted task afterwards, because that is where the two designs stopped agreeing."
+    },
+    {
+      "id": "HS-ESSAY-2026-02",
+      "type": "essay",
+      "title": "What the expert sees before the student knows to look",
+      "slug": "essay-2026-02-what-the-expert-sees",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-02"
+      ],
+      "cited_from": [
+        "essay-2026-10-expertise-earns-its-edges.html",
+        "wp-2026-02-capturing-expert-judgment.html"
+      ],
+      "takeaway": "Expertise is a relationship between cue, context and goal rather than a list of things experts know, so an extraction that keeps the cue and drops the relation has produced a vocabulary list. Judgment can still be modelled — partially, conditionally, transparently — and then tested where it is supposed to work."
+    },
+    {
+      "id": "HS-ESSAY-2026-03",
+      "type": "essay",
+      "title": "When “talk me through it” becomes an assessment",
+      "slug": "essay-2026-03-when-talk-me-through-it-becomes-an-assessment",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-03"
+      ],
+      "cited_from": [
+        "../workflows.html#voice",
+        "wp-2026-03-assessing-reasoning-not-recall.html"
+      ],
+      "takeaway": "An oral answer is a different performance, not a clearer window on the same one: the prompt changes what the student does, and higher oral marks record that change of mode. The evidential value of “talk me through it” begins only once you state what you intend to infer and what else could have produced the same answer."
+    },
+    {
+      "id": "HS-ESSAY-2026-04",
+      "type": "essay",
+      "title": "The group got an A. Who learned?",
+      "slug": "essay-2026-04-the-group-got-an-a-who-learned",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-04"
+      ],
+      "cited_from": [
+        "../workflows.html#groups",
+        "wp-2026-04-group-work-free-rider.html"
+      ],
+      "takeaway": "One mark is carrying three claims at once — the quality of the product, each member’s contribution, and each member’s learning — and visibility alone does not separate them; the transparent peer-marking scheme students refused to use is the warning. Each student’s learning still needs its own evidence."
+    },
+    {
+      "id": "HS-ESSAY-2026-05",
+      "type": "essay",
+      "title": "The case is not the lesson",
+      "slug": "essay-2026-05-the-case-is-not-the-lesson",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-05"
+      ],
+      "cited_from": [
+        "../workflows.html#case-study",
+        "wp-2026-05-cases-expert-modelling.html"
+      ],
+      "takeaway": "A case gives knowledge a job, but the effect belongs to the mechanism — comparison, explanation, calibrated guidance, feedback — and not to the realism of the staging. Rehearsal needs an afterlife: an account of what happened, feedback tied to a criterion, a chance to revise, and a later unaided decision."
+    },
+    {
+      "id": "HS-ESSAY-2026-06",
+      "type": "essay",
+      "title": "When the paper is no longer the evidence",
+      "slug": "essay-2026-06-when-the-paper-is-no-longer-the-evidence",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-06"
+      ],
+      "cited_from": [
+        "essay-2026-11-oral-assessment-as-measurement.html",
+        "essay-2026-12-grade-the-team-see-the-individuals.html",
+        "wp-2026-06-assessment-integrity.html"
+      ],
+      "takeaway": "Detection is a signal and not a verdict, and no located design earns the description AI-proof, so the useful question is what you need to know and which observation would bear on it. Several smaller observations across tasks, occasions and raters carry a claim about learning better than one artifact ever did."
+    },
+    {
+      "id": "HS-ESSAY-2026-07",
+      "type": "essay",
+      "title": "A score is not an explanation",
+      "slug": "essay-2026-07-a-score-is-not-an-explanation",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-07"
+      ],
+      "cited_from": [
+        "wp-2026-07-evidence-before-level.html"
+      ],
+      "takeaway": "Correlation is not agreement and a fluent rationale is not a reason: rank correlations near .97 sat beside exact agreement of 66% and 46% in the same randomised comparison, and a generous metric hides the very decision the score is meant to support. Ask which evidence the score was built from and whether another reader can find it."
+    },
+    {
+      "id": "HS-ESSAY-2026-08A",
+      "type": "essay",
+      "title": "Good work. Who decided?",
+      "slug": "essay-2026-08a-good-work-who-decided",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-08A",
+        "HS-WP-2026-08B"
+      ],
+      "cited_from": [
+        "wp-2026-08a-displayed-judgment-governance.html"
+      ],
+      "takeaway": "A finished artifact shows that good work exists without showing who governed the judgment that produced it, and the two questions need different evidence. The honest version of the measure is still unbuilt: without a reference process independent of the scorer, an attribution claim only repeats the scorer’s own assumptions back to you."
+    },
+    {
+      "id": "HS-ESSAY-2026-09",
+      "type": "essay",
+      "title": "When the tutor disappears, the professor remains",
+      "slug": "essay-2026-09-the-professor-remains",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-01",
+        "HS-WP-2026-03",
+        "HS-WP-2026-06"
+      ],
+      "licenses": "The honest test of an AI tutor is still what happens when it disappears.",
+      "takeaway": "Better assisted work is not yet learning, which makes the class hour the withdrawal test — the place where private assisted performances become public, revisable judgments. The professor’s advantage is not consistency; it is deciding, from the evidence of yesterday’s interaction, what deserves another pass."
+    },
+    {
+      "id": "HS-ESSAY-2026-10",
+      "type": "essay",
+      "title": "Expertise earns its edges",
+      "slug": "essay-2026-10-expertise-earns-its-edges",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-02",
+        "HS-WP-2026-05",
+        "HS-WP-2026-09"
+      ],
+      "licenses": "Expertise cannot be uploaded intact. Parts of judgment can be represented, challenged, revised and tested.",
+      "cited_from": [
+        "wp-2026-02-capturing-expert-judgment.html"
+      ],
+      "takeaway": "Captured expertise begins as a claim, because experts omit what has become automatic and describe what should happen rather than what did; elicitation supplies the nodes, and the edges have to be earned through experience the design deliberately creates. The promise worth making is a model that is inspectable and revisable, not one that is complete."
+    },
+    {
+      "id": "HS-ESSAY-2026-11",
+      "type": "essay",
+      "title": "Oral assessment should be designed as measurement",
+      "slug": "essay-2026-11-oral-assessment-as-measurement",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-03",
+        "HS-WP-2026-06"
+      ],
+      "licenses": "A conversation does not measure reasoning merely because reasoning may occur inside it.",
+      "cited_from": [
+        "wp-2026-03-assessing-reasoning-not-recall.html"
+      ],
+      "takeaway": "Begin with the claim, not the microphone: name the observable moves, sample more than one performance, bound the follow-ups, score evidence rather than presence, and test the AI scorer against a human reference. A conversation does not measure reasoning merely because reasoning may occur inside it."
+    },
+    {
+      "id": "HS-ESSAY-2026-12",
+      "type": "essay",
+      "title": "Grade the team. See the individuals. Govern the decision.",
+      "slug": "essay-2026-12-grade-the-team-see-the-individuals",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-04",
+        "HS-WP-2026-06",
+        "HS-WP-2026-08A",
+        "HS-WP-2026-08B"
+      ],
+      "licenses": "Grade the shared product as a shared product. Examine contribution as contribution. Require attributable evidence for individual learning.",
+      "cited_from": [
+        "wp-2026-04-group-work-free-rider.html"
+      ],
+      "takeaway": "One grade hides at least five claims — the team’s product, each member’s contribution, each member’s learning, what the AI operatively did, and who governed the judgment — and a fair system does not compress them before it has the evidence to tell them apart. Grade the shared product as a shared product, and get individual evidence individually."
+    },
+    {
+      "id": "HS-ESSAY-2026-13",
+      "type": "essay",
+      "title": "Case topology arranges opportunities; it does not create effects",
+      "slug": "essay-2026-13-choose-the-case-topology",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-02",
+        "HS-WP-2026-05"
+      ],
+      "licenses": "The case is not the lesson, and the topology is not the effect.",
+      "cited_from": [
+        "wp-2026-05-cases-expert-modelling.html"
+      ],
+      "takeaway": "Solo Expert, Hub & Spoke, Open Table and Baton Pass each make a different judgment right observable — use of a bounded heuristic, integration under a governing frame, information seeking, handoff — so choose the topology for the thinking you want rather than for the size of the cast. Topology arranges opportunities; it does not create effects."
+    },
+    {
+      "id": "HS-ESSAY-2026-14",
+      "type": "essay",
+      "title": "A score is a protocol, not a revelation",
+      "slug": "essay-2026-14-a-score-is-a-protocol",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-07"
+      ],
+      "licenses": "A score is not a revelation. It is the output of a protocol.",
+      "cited_from": [
+        "wp-2026-07-evidence-before-level.html"
+      ],
+      "takeaway": "Objectivity is the wrong promise: what counts as evidence, which differences deserve different levels, and what to do when the record is thin are normative choices a machine can hide behind a number but cannot remove. Let humans govern what changes and machines execute what should stay fixed, requiring the protocol to show its evidence either way."
+    },
+    {
+      "id": "HS-ESSAY-2026-15",
+      "type": "essay",
+      "title": "Why HeuriSight?",
+      "slug": "essay-2026-15-why-heurisight",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-SYN-2026-01",
+        "HS-WP-2026-01",
+        "HS-WP-2026-02",
+        "HS-WP-2026-03",
+        "HS-WP-2026-04",
+        "HS-WP-2026-05",
+        "HS-WP-2026-06",
+        "HS-WP-2026-07",
+        "HS-WP-2026-08A",
+        "HS-WP-2026-08B",
+        "HS-WP-2026-09",
+        "HS-WP-2026-10"
+      ],
+      "licenses": "Claims about learning are no larger than the evidence beneath them.",
+      "cited_from": [
+        "syn-2026-01-from-artifacts-to-evidence.html"
+      ],
+      "takeaway": "One finished artifact used to carry several inferences at once — what the author knows, how they reasoned, who did the work, how much they learned — and generative AI has made their separation impossible to ignore. The answer here is one cycle rather than seven products: ground the AI, represent judgment, and keep every claim attached to the evidence that earns it."
+    },
+    {
+      "id": "HS-ESSAY-2026-16",
+      "type": "essay",
+      "title": "The decisions between the answers",
+      "slug": "essay-2026-16-the-decisions-between-the-answers",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-09"
+      ],
+      "cited_from": [
+        "wp-2026-09-heuristics-as-a-record-of-learning.html"
+      ],
+      "takeaway": "The gradebook keeps the answer and discards the path, and a graph that records the path is a genuinely different kind of evidence — but movement in that graph is an activity record first, a candidate picture of reasoning-in-use second, and proof of learning only if acquisition, transfer and durability are tested separately. Nothing about a moving graph settles which of the three you are looking at."
+    },
+    {
+      "id": "HS-ESSAY-2026-17",
+      "type": "essay",
+      "title": "A human in the loop is not the same as human judgment in the loop",
+      "slug": "essay-2026-17-human-judgment-in-the-loop",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-10"
+      ],
+      "cited_from": [
+        "wp-2026-10-human-heuristics-in-the-loop.html"
+      ],
+      "takeaway": "Signing off on a finished output and shaping the work before it commits are different acts, and only the second makes human judgment consequential. Accepting, adapting, rejecting and withholding are the moves worth recording — and recording them proves a process happened, not that it produced better work."
+    },
+    {
+      "id": "HS-SYN-2026-01",
+      "type": "synthesis",
+      "title": "From artifacts to evidence",
+      "slug": "syn-2026-01-from-artifacts-to-evidence",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-01",
+        "HS-WP-2026-02",
+        "HS-WP-2026-03",
+        "HS-WP-2026-04",
+        "HS-WP-2026-05",
+        "HS-WP-2026-06",
+        "HS-WP-2026-07",
+        "HS-WP-2026-08A",
+        "HS-WP-2026-08B",
+        "HS-WP-2026-09",
+        "HS-WP-2026-10"
+      ],
+      "licenses": "An inference becomes credible only when the evidence carrier is appropriate to the claim.",
+      "strength": "Portfolio synthesis · no pooled effect",
+      "cited_from": [
+        "essay-2026-15-why-heurisight.html"
+      ],
+      "takeaway": "Seven propositions survive across eleven independent literatures, and the one that governs the rest is that the inference becomes credible only when the evidence carrier is appropriate to the claim. The portfolio is a design and measurement program with one adverse preregistered audit inside it; no effect was pooled across studies, and no HeuriSight outcome is demonstrated anywhere in it."
+    },
+    {
+      "id": "HS-MN-2026-01",
+      "type": "methods",
+      "title": "How this library was written",
+      "slug": "mn-2026-01-how-this-library-was-written",
+      "date": "2026-08-05",
+      "rests_on": [
+        "HS-WP-2026-10"
+      ],
+      "licenses": "A process record supports attribution and audit. It settles nothing about understanding, originality or quality.",
+      "strength": "Process disclosure · not an evaluation",
+      "cited_from": [
+        "essay-2026-01-the-tutor-disappears-at-exam-time.html",
+        "essay-2026-02-what-the-expert-sees.html",
+        "essay-2026-03-when-talk-me-through-it-becomes-an-assessment.html",
+        "essay-2026-05-the-case-is-not-the-lesson.html",
+        "essay-2026-06-when-the-paper-is-no-longer-the-evidence.html",
+        "essay-2026-07-a-score-is-not-an-explanation.html",
+        "essay-2026-09-the-professor-remains.html",
+        "essay-2026-10-expertise-earns-its-edges.html",
+        "essay-2026-11-oral-assessment-as-measurement.html",
+        "essay-2026-13-choose-the-case-topology.html",
+        "essay-2026-14-a-score-is-a-protocol.html",
+        "essay-2026-15-why-heurisight.html",
+        "essay-2026-17-human-judgment-in-the-loop.html",
+        "syn-2026-01-from-artifacts-to-evidence.html",
+        "wp-2026-01-ai-tutor-help-vs-harm.html",
+        "wp-2026-02-capturing-expert-judgment.html",
+        "wp-2026-03-assessing-reasoning-not-recall.html",
+        "wp-2026-05-cases-expert-modelling.html",
+        "wp-2026-06-assessment-integrity.html",
+        "wp-2026-07-evidence-before-level.html",
+        "wp-2026-10-human-heuristics-in-the-loop.html"
+      ],
+      "takeaway": "The library was written by an accountable human author using AI research and drafting tools and retrieved heuristics abstracted from that author’s own prior scholarship, with every guidance decision recorded as applied, adapted or rejected. A process trace supports attribution and audit and settles nothing about understanding, originality, voice or quality — which is why the note ends with the comparison that would actually test it."
+    }
+  ],
+  "constructs": [
+    {
+      "id": "transfer-after-withdrawal",
+      "label": "transfer after withdrawal"
+    },
+    {
+      "id": "teacher-grounding",
+      "label": "teacher grounding"
+    },
+    {
+      "id": "scaffolding-and-fading",
+      "label": "scaffolding and fading"
+    },
+    {
+      "id": "worked-examples",
+      "label": "worked examples"
+    },
+    {
+      "id": "self-explanation",
+      "label": "self-explanation"
+    },
+    {
+      "id": "retrieval-practice",
+      "label": "retrieval practice"
+    },
+    {
+      "id": "cognitive-offloading",
+      "label": "cognitive offloading"
+    },
+    {
+      "id": "expert-novice-representation",
+      "label": "expert–novice representation"
+    },
+    {
+      "id": "knowledge-elicitation",
+      "label": "knowledge elicitation"
+    },
+    {
+      "id": "deliberate-practice",
+      "label": "deliberate practice"
+    },
+    {
+      "id": "case-based-learning",
+      "label": "case-based learning"
+    },
+    {
+      "id": "contrasting-cases",
+      "label": "contrasting cases"
+    },
+    {
+      "id": "oral-assessment-validity",
+      "label": "oral assessment validity"
+    },
+    {
+      "id": "individual-accountability",
+      "label": "individual accountability"
+    },
+    {
+      "id": "contribution-visibility",
+      "label": "contribution visibility"
+    },
+    {
+      "id": "ai-text-detection-reliability",
+      "label": "AI-text detection reliability"
+    },
+    {
+      "id": "detection-bias",
+      "label": "detection bias"
+    },
+    {
+      "id": "multiple-samples-of-performance",
+      "label": "multiple samples of performance"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "ta",
+      "label": "AI Teaching Assistant",
+      "page": "workflows.html#ta"
+    },
+    {
+      "id": "groups",
+      "label": "Group Work with AI",
+      "page": "workflows.html#groups"
+    },
+    {
+      "id": "case-study",
+      "label": "Case Study with Digital Twins",
+      "page": "workflows.html#case-study"
+    },
+    {
+      "id": "voice",
+      "label": "AI Voice Interviews",
+      "page": "workflows.html#voice"
+    }
+  ],
+  "sources_rendered": [
+    {
+      "id": "Biesma2019",
+      "label": "Biesma et al. (2019)"
+    },
+    {
+      "id": "BrooksAmmons2003",
+      "label": "Brooks & Ammons (2003)"
+    },
+    {
+      "id": "Bassner2026",
+      "label": "Bassner et al. (2026)"
+    },
+    {
+      "id": "Huxham2012",
+      "label": "Huxham et al. (2012)"
+    },
+    {
+      "id": "Dochy2003",
+      "label": "Dochy et al. (2003)"
+    },
+    {
+      "id": "ContractorReyes2026",
+      "label": "Contractor & Reyes (2026)"
+    },
+    {
+      "id": "MacnamaraEtAl2014",
+      "label": "Macnamara et al. (2014)"
+    },
+    "Cai2026",
+    "Hong2026",
+    "Randazzo2025",
+    "Bousmah2026"
+  ],
+  "edges": [
+    {
+      "from": "ta",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-01"
+    },
+    {
+      "from": "groups",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-04"
+    },
+    {
+      "from": "case-study",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-05"
+    },
+    {
+      "from": "voice",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-03"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "cites",
+      "to": "Bassner2026"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "cites",
+      "to": "ContractorReyes2026"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "measures",
+      "to": "transfer-after-withdrawal"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "measures",
+      "to": "teacher-grounding"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "measures",
+      "to": "scaffolding-and-fading"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "measures",
+      "to": "worked-examples"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "measures",
+      "to": "self-explanation"
+    },
+    {
+      "from": "HS-WP-2026-01",
+      "type": "measures",
+      "to": "cognitive-offloading"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-02"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-10"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "cites",
+      "to": "MacnamaraEtAl2014"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "measures",
+      "to": "expert-novice-representation"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "measures",
+      "to": "knowledge-elicitation"
+    },
+    {
+      "from": "HS-WP-2026-02",
+      "type": "measures",
+      "to": "deliberate-practice"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-03"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-11"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "cites",
+      "to": "Huxham2012"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "measures",
+      "to": "oral-assessment-validity"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "measures",
+      "to": "retrieval-practice"
+    },
+    {
+      "from": "HS-WP-2026-03",
+      "type": "measures",
+      "to": "self-explanation"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-04"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-12"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "cites",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "cites",
+      "to": "Biesma2019"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "cites",
+      "to": "BrooksAmmons2003"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "measures",
+      "to": "individual-accountability"
+    },
+    {
+      "from": "HS-WP-2026-04",
+      "type": "measures",
+      "to": "contribution-visibility"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-05"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-13"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "cites",
+      "to": "Dochy2003"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "measures",
+      "to": "case-based-learning"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "measures",
+      "to": "contrasting-cases"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "measures",
+      "to": "worked-examples"
+    },
+    {
+      "from": "HS-WP-2026-05",
+      "type": "measures",
+      "to": "self-explanation"
+    },
+    {
+      "from": "HS-WP-2026-06",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-06"
+    },
+    {
+      "from": "HS-WP-2026-06",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-06",
+      "type": "measures",
+      "to": "ai-text-detection-reliability"
+    },
+    {
+      "from": "HS-WP-2026-06",
+      "type": "measures",
+      "to": "detection-bias"
+    },
+    {
+      "from": "HS-WP-2026-06",
+      "type": "measures",
+      "to": "multiple-samples-of-performance"
+    },
+    {
+      "from": "HS-WP-2026-07",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-07"
+    },
+    {
+      "from": "HS-WP-2026-07",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-14"
+    },
+    {
+      "from": "HS-WP-2026-07",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-08A",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-08A"
+    },
+    {
+      "from": "HS-WP-2026-08A",
+      "type": "cites",
+      "to": "HS-WP-2026-08B"
+    },
+    {
+      "from": "HS-WP-2026-08B",
+      "type": "cites",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "HS-WP-2026-09",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-16"
+    },
+    {
+      "from": "HS-WP-2026-10",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-17"
+    },
+    {
+      "from": "HS-WP-2026-10",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-WP-2026-10",
+      "type": "cites",
+      "to": "HS-WP-2026-09"
+    },
+    {
+      "from": "HS-ESSAY-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-01",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-02",
+      "type": "cites",
+      "to": "HS-WP-2026-02"
+    },
+    {
+      "from": "HS-ESSAY-2026-02",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-03",
+      "type": "cites",
+      "to": "HS-WP-2026-03"
+    },
+    {
+      "from": "HS-ESSAY-2026-03",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-04",
+      "type": "cites",
+      "to": "HS-WP-2026-04"
+    },
+    {
+      "from": "HS-ESSAY-2026-05",
+      "type": "cites",
+      "to": "HS-WP-2026-05"
+    },
+    {
+      "from": "HS-ESSAY-2026-05",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-06",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-06",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-07",
+      "type": "cites",
+      "to": "HS-WP-2026-07"
+    },
+    {
+      "from": "HS-ESSAY-2026-07",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-08A",
+      "type": "cites",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "HS-ESSAY-2026-08A",
+      "type": "cites",
+      "to": "HS-WP-2026-08B"
+    },
+    {
+      "from": "HS-ESSAY-2026-09",
+      "type": "cites",
+      "to": "HS-WP-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-09",
+      "type": "cites",
+      "to": "HS-WP-2026-03"
+    },
+    {
+      "from": "HS-ESSAY-2026-09",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-09",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-09",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-10",
+      "type": "cites",
+      "to": "HS-WP-2026-02"
+    },
+    {
+      "from": "HS-ESSAY-2026-10",
+      "type": "cites",
+      "to": "HS-WP-2026-05"
+    },
+    {
+      "from": "HS-ESSAY-2026-10",
+      "type": "cites",
+      "to": "HS-WP-2026-09"
+    },
+    {
+      "from": "HS-ESSAY-2026-10",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-10",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-02"
+    },
+    {
+      "from": "HS-ESSAY-2026-11",
+      "type": "cites",
+      "to": "HS-WP-2026-03"
+    },
+    {
+      "from": "HS-ESSAY-2026-11",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-11",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-11",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-12",
+      "type": "cites",
+      "to": "HS-WP-2026-04"
+    },
+    {
+      "from": "HS-ESSAY-2026-12",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-12",
+      "type": "cites",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "HS-ESSAY-2026-12",
+      "type": "cites",
+      "to": "HS-WP-2026-08B"
+    },
+    {
+      "from": "HS-ESSAY-2026-12",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-13",
+      "type": "cites",
+      "to": "HS-WP-2026-05"
+    },
+    {
+      "from": "HS-ESSAY-2026-13",
+      "type": "cites",
+      "to": "HS-WP-2026-02"
+    },
+    {
+      "from": "HS-ESSAY-2026-13",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-14",
+      "type": "cites",
+      "to": "HS-WP-2026-07"
+    },
+    {
+      "from": "HS-ESSAY-2026-14",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-SYN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-01"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-02"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-05"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-10"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-03"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-04"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-07"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-08B"
+    },
+    {
+      "from": "HS-ESSAY-2026-15",
+      "type": "cites",
+      "to": "HS-WP-2026-09"
+    },
+    {
+      "from": "HS-ESSAY-2026-16",
+      "type": "cites",
+      "to": "HS-WP-2026-09"
+    },
+    {
+      "from": "HS-ESSAY-2026-17",
+      "type": "cites",
+      "to": "HS-WP-2026-10"
+    },
+    {
+      "from": "HS-ESSAY-2026-17",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-ESSAY-2026-15"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-MN-2026-01"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-01"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-02"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-05"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-03"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-04"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-06"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-07"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-08B"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-09"
+    },
+    {
+      "from": "HS-SYN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-10"
+    },
+    {
+      "from": "HS-MN-2026-01",
+      "type": "cites",
+      "to": "HS-WP-2026-10"
+    },
+    {
+      "from": "Cai2026",
+      "type": "anticipates",
+      "to": "HS-WP-2026-07"
+    },
+    {
+      "from": "Hong2026",
+      "type": "anticipates",
+      "to": "HS-WP-2026-07"
+    },
+    {
+      "from": "Randazzo2025",
+      "type": "anticipates",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "Bousmah2026",
+      "type": "anticipates",
+      "to": "HS-WP-2026-08A"
+    },
+    {
+      "from": "Biesma2019",
+      "type": "contradicts",
+      "to": "groups"
+    },
+    {
+      "from": "Biesma2019",
+      "type": "measures",
+      "to": "contribution-visibility"
+    },
+    {
+      "from": "BrooksAmmons2003",
+      "type": "contradicts",
+      "to": "groups"
+    },
+    {
+      "from": "BrooksAmmons2003",
+      "type": "measures",
+      "to": "contribution-visibility"
+    },
+    {
+      "from": "Bassner2026",
+      "type": "contradicts",
+      "to": "ta"
+    },
+    {
+      "from": "Bassner2026",
+      "type": "measures",
+      "to": "transfer-after-withdrawal"
+    },
+    {
+      "from": "Huxham2012",
+      "type": "contradicts",
+      "to": "voice"
+    },
+    {
+      "from": "Huxham2012",
+      "type": "measures",
+      "to": "oral-assessment-validity"
+    },
+    {
+      "from": "Dochy2003",
+      "type": "contradicts",
+      "to": "case-study"
+    },
+    {
+      "from": "Dochy2003",
+      "type": "measures",
+      "to": "case-based-learning"
+    },
+    {
+      "from": "ContractorReyes2026",
+      "type": "contradicts",
+      "to": "cognitive-offloading"
+    },
+    {
+      "from": "ContractorReyes2026",
+      "type": "measures",
+      "to": "cognitive-offloading"
+    },
+    {
+      "from": "MacnamaraEtAl2014",
+      "type": "contradicts",
+      "to": "deliberate-practice"
+    },
+    {
+      "from": "MacnamaraEtAl2014",
+      "type": "measures",
+      "to": "deliberate-practice"
+    }
+  ]
+}

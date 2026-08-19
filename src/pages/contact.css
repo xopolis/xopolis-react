@@ -1,0 +1,224 @@
+.p-contact {
+--accent: #00B4A8;
+            --accent-hover: #00D4C8;
+            --accent-subtle: rgba(0, 180, 168, 0.10);
+            --brand-navy: #0B1D3E;
+            --brand-blue: #2563EB;
+            --brand-cyan: #00D4C8;
+            --success: #34C759;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F7;
+            --gray-200: #E8E8ED;
+            --gray-300: #D2D2D7;
+            --gray-400: #86868B;
+            --gray-500: #6E6E73;
+            --gray-600: #515154;
+            --gray-700: #3A3A3C;
+            --gray-800: #2C2C2E;
+            --gray-900: #1D1D1F;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: var(--gray-100);
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-500);
+            --text-tertiary: var(--gray-400);
+            --border-light: rgba(0, 0, 0, 0.06);
+            --border-default: rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --font-sans: 'Neue Haas Grotesk Text', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Neue Haas Grotesk Display Pro', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --text-xs: 12px;
+            --text-sm: 14px;
+            --text-base: 17px;
+            --text-lg: 21px;
+            --text-xl: 24px;
+            --text-2xl: 28px;
+            --text-3xl: 40px;
+            --text-4xl: 56px;
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            --space-24: 96px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+            --duration-fast: 150ms;
+}
+.p-contact *, .p-contact *::before, .p-contact *::after {
+box-sizing: border-box; margin: 0; padding: 0;
+}
+.p-contact {
+scroll-behavior: smooth;
+}
+.p-contact {
+font-family: var(--font-sans); font-size: var(--text-base); line-height: 1.5; color: var(--text-primary); background: var(--bg-primary); -webkit-font-smoothing: antialiased;
+}
+.p-contact img {
+max-width: 100%; height: auto;
+}
+.p-contact .nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.72); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border-light);
+}
+.p-contact .nav-container {
+max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); height: 52px; display: flex; align-items: center; justify-content: space-between;
+}
+.p-contact .nav-logo {
+display: inline-flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); text-decoration: none;
+}
+.p-contact .nav-logo img {
+height: 28px; width: auto; border-radius: 4px;
+}
+.p-contact .nav-links {
+display: flex; gap: var(--space-8); list-style: none;
+}
+.p-contact .nav-links a {
+font-size: var(--text-sm); color: var(--text-primary); text-decoration: none; transition: color var(--duration-fast);
+}
+.p-contact .nav-links a:hover {
+color: var(--accent);
+}
+.p-contact .nav-actions {
+display: flex; align-items: center; gap: var(--space-4);
+}
+.p-contact .btn {
+display: inline-flex; align-items: center; justify-content: center; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); font-family: var(--font-sans); font-size: var(--text-sm); text-decoration: none; cursor: pointer; transition: all var(--duration-fast); border: none;
+}
+.p-contact .btn-primary {
+background: var(--accent); color: white;
+}
+.p-contact .btn-primary:hover {
+background: var(--accent-hover);
+}
+.p-contact .page-header {
+padding: calc(52px + var(--space-20)) var(--space-6) var(--space-16); background: var(--bg-secondary); text-align: center;
+}
+.p-contact .page-header h1 {
+font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; letter-spacing: -0.03em; margin-bottom: var(--space-4);
+}
+.p-contact .page-header p {
+font-size: var(--text-xl); color: var(--text-secondary); max-width: 700px; margin: 0 auto;
+}
+.p-contact .section {
+padding: var(--space-24) var(--space-6);
+}
+.p-contact .section-container {
+max-width: 800px; margin: 0 auto;
+}
+.p-contact .contact-grid {
+display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+}
+.p-contact .contact-info h2 {
+font-size: var(--text-2xl); font-weight: 600; margin-bottom: var(--space-6);
+}
+.p-contact .contact-method {
+margin-bottom: var(--space-6);
+}
+.p-contact .contact-method h3 {
+font-size: var(--text-sm); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: var(--space-2);
+}
+.p-contact .contact-method p {
+font-size: var(--text-base); color: var(--text-primary);
+}
+.p-contact .contact-method a {
+color: var(--accent); text-decoration: none;
+}
+.p-contact .contact-method a:hover {
+text-decoration: underline;
+}
+.p-contact .contact-form {
+background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--radius-lg);
+}
+.p-contact .contact-form h2 {
+font-size: var(--text-xl); font-weight: 600; margin-bottom: var(--space-6);
+}
+.p-contact .form-group {
+margin-bottom: var(--space-5);
+}
+.p-contact .form-group label {
+display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: var(--space-2);
+}
+.p-contact .form-group input, .p-contact .form-group textarea, .p-contact .form-group select {
+width: 100%;
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: var(--text-base);
+            transition: border-color var(--duration-fast);
+}
+.p-contact .form-group input:focus, .p-contact .form-group textarea:focus, .p-contact .form-group select:focus {
+outline: none;
+            border-color: var(--accent);
+}
+.p-contact .form-group textarea {
+min-height: 120px; resize: vertical;
+}
+.p-contact .form-submit {
+width: 100%; padding: var(--space-3) var(--space-6); background: var(--accent); color: white; border: none; border-radius: var(--radius-sm); font-family: var(--font-sans); font-size: var(--text-base); font-weight: 500; cursor: pointer; transition: background var(--duration-fast);
+}
+.p-contact .form-submit:hover {
+background: var(--accent-hover);
+}
+.p-contact .footer {
+padding: var(--space-12) var(--space-6); background: var(--bg-secondary); border-top: 1px solid var(--border-light);
+}
+.p-contact .footer-container {
+max-width: 1200px; margin: 0 auto;
+}
+.p-contact .footer-grid {
+display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-12); margin-bottom: var(--space-12);
+}
+.p-contact .footer-brand h3 {
+font-size: var(--text-lg); font-weight: 700; margin-bottom: var(--space-3);
+}
+.p-contact .footer-brand p {
+font-size: var(--text-sm); color: var(--text-secondary);
+}
+.p-contact .footer-column h4 {
+font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: var(--space-4);
+}
+.p-contact .footer-column ul {
+list-style: none;
+}
+.p-contact .footer-column a {
+display: block; font-size: var(--text-sm); color: var(--text-secondary); text-decoration: none; padding: var(--space-1) 0;
+}
+.p-contact .footer-column a:hover {
+color: var(--text-primary);
+}
+.p-contact .footer-bottom {
+padding-top: var(--space-6); border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;
+}
+.p-contact .footer-copyright {
+font-size: var(--text-xs); color: var(--text-tertiary);
+}
+.p-contact .footer-legal {
+display: flex; gap: var(--space-6);
+}
+.p-contact .footer-legal a {
+font-size: var(--text-xs); color: var(--text-tertiary); text-decoration: none;
+}
+@media (max-width: 768px) {
+.p-contact .nav-links {
+display: none;
+}
+.p-contact .page-header h1 {
+font-size: var(--text-3xl);
+}
+.p-contact .contact-grid {
+grid-template-columns: 1fr;
+}
+.p-contact .footer-grid {
+grid-template-columns: 1fr 1fr;
+}
+}

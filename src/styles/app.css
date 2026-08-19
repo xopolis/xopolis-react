@@ -1,0 +1,6 @@
+/* Global utilities that must apply on every route (the shared layout renders the
+   SVG sprite + nav + footer, and per-page inline styles can't be relied on). */
+.x-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* Route transition wrapper never constrains layout. */
+.route-view { display: block; }

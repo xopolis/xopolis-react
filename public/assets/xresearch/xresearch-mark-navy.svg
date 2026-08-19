@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img"
+     aria-label="xResearch mark">
+<!-- COLOUR-BAKED COPY of xresearch-mark.svg, for <img> use. currentColor does
+     NOT inherit into an <img>, so the currentColor master renders BLACK there.
+     Inline the master when you want it to take the surrounding colour; use
+     this file when it is loaded through src=. Keep the two in step. -->
+<!--
+  xResearch mark — DRAWN 2026-08-07, at the owner's explicit request, because
+  no xResearch mark exists anywhere in the repository or the brand package and
+  the three-card platform row needs three marks.
+
+  THIS IS NOT A SUPPLIED BRAND ASSET. It is a placeholder built to sit in the
+  family until a designer makes the real one. Recorded as such in
+  assets/ASSETS_logos.md.
+
+  In-family by construction, so the row reads as one house:
+    · the ring matches HeuriSight's mark-navy.svg proportions — outer radius
+      100 on a 240 box, stroke 8, i.e. the same ~3.3% ring weight;
+    · Xopolis and ProtoBots put a city inside the ring, HeuriSight puts a node
+      figure inside it. This puts a node-and-edge network inside it, which is
+      literally what xResearch is: the library is 63 nodes and 146 typed edges.
+      It is the subject, not decoration.
+
+  fill="#172D67" on the group, never on the root <svg>: a page that lifts
+  the children into a <symbol> drops the root, and a colour declared there
+  renders black. Same rule as xopolis-lockup.svg.
+-->
+<g fill="none" stroke="#172D67" stroke-width="8" stroke-linecap="round"
+   stroke-linejoin="round">
+  <circle cx="120" cy="120" r="100"/>
+  <!-- edges first so the nodes sit on top of them -->
+  <path d="M120 74 L74 150 M120 74 L166 150 M74 150 L166 150 M120 74 L120 150"/>
+</g>
+<g fill="#172D67">
+  <circle cx="120" cy="74" r="16"/>
+  <circle cx="74" cy="150" r="13"/>
+  <circle cx="166" cy="150" r="13"/>
+  <circle cx="120" cy="150" r="10"/>
+</g>
+</svg>

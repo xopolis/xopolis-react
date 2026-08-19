@@ -1,0 +1,117 @@
+/* =========================================================================
+   motion.css — A12-2026-08-07
+   Five motion behaviours, added at the owner's request to lift the production
+   feel. Kept in ONE file, loaded last, so the whole set can be reviewed in one
+   diff and removed with one <link>.
+
+   THE RULE THAT GOVERNS ALL OF IT
+   Every animation here is additive. Remove this stylesheet and every page is
+   still complete, legible and operable: nothing depends on a transition
+   finishing, nothing is hidden until a script reveals it (see §2), and no
+   layout is produced by an animation.
+
+   REDUCED MOTION
+   The whole file is disabled in one block at the bottom rather than guarded
+   rule by rule — rule-by-rule guards are how a media query gets forgotten on
+   the sixth addition. Reduced motion gets the FINAL state of everything,
+   never the starting state, so nobody is left looking at an invisible section.
+   ========================================================================= */
+
+/* ---- 1 · card lift on hover -------------------------------------------- */
+/* Pointer-only: `@media (hover:hover)` keeps it off touch, where :hover
+   sticks after a tap and leaves a card looking selected. */
+@media (hover: hover) and (pointer: fine) {
+  .card, .pcard, .wf-card, .door-summary {
+    transition: transform .22s cubic-bezier(.2, .7, .3, 1),
+                box-shadow .22s cubic-bezier(.2, .7, .3, 1);
+    will-change: transform;
+  }
+  .card:hover, .pcard:hover, .wf-card:hover, .door-summary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg, 0 18px 40px rgba(23, 45, 103, .13));
+  }
+  /* A card that is a link should also answer the keyboard, not only the mouse. */
+  .card:focus-within, .pcard:focus-within {
+    transform: translateY(-2px);
+  }
+}
+
+/* ---- 2 · scroll reveal -------------------------------------------------- */
+/* CRITICAL: the hidden state is applied by SCRIPT (html.js-motion), never by
+   this stylesheet alone. With JS off, or if the observer never fires, the
+   content is simply visible — the failure mode of a CSS-only reveal is a blank
+   page, and that is not a trade worth 12px of travel. */
+.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .3, 1);
+}
+.js-motion [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+/* Stagger children of a revealed group, capped — past about six the last item
+   waits long enough that it reads as a bug rather than a flourish. */
+.js-motion [data-reveal-stagger] > * { transition-delay: 0ms; }
+.js-motion [data-reveal-stagger] > *:nth-child(2) { transition-delay: 60ms; }
+.js-motion [data-reveal-stagger] > *:nth-child(3) { transition-delay: 120ms; }
+.js-motion [data-reveal-stagger] > *:nth-child(4) { transition-delay: 180ms; }
+.js-motion [data-reveal-stagger] > *:nth-child(5) { transition-delay: 240ms; }
+.js-motion [data-reveal-stagger] > *:nth-child(n+6) { transition-delay: 300ms; }
+
+/* ---- 3 · interactive hero graph ---------------------------------------- */
+/* The canvas sits on top of the video and is only revealed once the script has
+   drawn a first frame, so a failure leaves the video playing rather than a
+   blank rectangle. See motion.js §3 and the HERO_GRAPH switch in index.html. */
+.hero-graph { position: relative; }
+.hero-graph canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0; transition: opacity .5s ease; pointer-events: auto;
+}
+.hero-graph.graph-live canvas { opacity: 1; }
+.hero-graph.graph-live video,
+.hero-graph.graph-live .poster-fallback { visibility: hidden; }
+
+/* ---- 4 · link underline wipe ------------------------------------------- */
+/* Only where an underline is decoration. Body-prose links and citation links
+   keep their permanent underline: those carry meaning, and animating them in
+   would mean they read as plain text until hovered. */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a, .foot-grid a, .btn-link {
+    position: relative;
+    text-decoration: none;
+  }
+  .nav-links a::after, .foot-grid a::after, .btn-link::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -3px; height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .26s cubic-bezier(.2, .7, .3, 1);
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after,
+  .foot-grid a:hover::after, .foot-grid a:focus-visible::after,
+  .btn-link:hover::after, .btn-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+  /* The current page is a state, not a hover: it stays drawn. */
+  .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+}
+
+/* ---- 5 · number count-up ----------------------------------------------- */
+/* `tabular-nums` so the digits do not reflow while counting — without it the
+   line jitters horizontally on every tick, which reads as a rendering fault. */
+[data-countup] { font-variant-numeric: tabular-nums; }
+
+/* ---- reduced motion: one block, the whole file ------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .card, .pcard, .wf-card, .door-summary,
+  .nav-links a::after, .foot-grid a::after, .btn-link::after,
+  .js-motion [data-reveal], .hero-graph canvas {
+    transition: none !important;
+  }
+  .card:hover, .pcard:hover, .wf-card:hover, .door-summary:hover,
+  .card:focus-within, .pcard:focus-within { transform: none; }
+  /* the FINAL state, never the starting state */
+  .js-motion [data-reveal] { opacity: 1; transform: none; }
+  .nav-links a::after, .foot-grid a::after, .btn-link::after { transform: scaleX(1); }
+}

@@ -1,0 +1,360 @@
+/* ===========================================================================
+   HeuriSight.com redesign — shared design system
+   Brand tokens v1.0.0 (canonical, from brand-tokens.json). Teal is DEPRECATED.
+   Prototype only — copy is "indicative", pricing pending Finance lock.
+   =========================================================================== */
+
+:root{
+  /* Core brand */
+  --navy:#172D67;        --navy-hover:#0F1F4A;   --navy-25:#2543A0;
+  --royal:#2E73EA;       --royal-hover:#1E5BC6;  --royal-light:#4F8DF0;
+  --violet:#8342D7;      --violet-hover:#6B35B3; --violet-light:#A678E8;
+  --purple-mid:#5A4BE0;
+  --indigo-black:#17072B;
+  --blue-tint:#7EA9F2;
+  /* Neutrals */
+  --off-white:#F2F2F2;   --paper:#FBFBFD;        --white:#FFFFFF;
+  --charcoal:#353535;    --gray-mid:#9D9FA2;     --hairline:#E6E8EE;
+  --ink:#10162B;
+  /* --gray-mid is a HAIRLINE / ICON / DOT tone only. It measures 2.57:1 on
+     --paper and 2.37:1 on --off-white, and fails WCAG AA for any text under
+     18.66px. Every text use in this package points at --gray-text instead. */
+  --gray-text:#6B7280;   /* 4.83:1 on #FBFBFD, 4.63:1 on #F2F2F2 — AA clean */
+  /* Gradients */
+  --grad-hero:linear-gradient(135deg,#172D67 0%,#2E73EA 55%,#5A4BE0 100%);
+  --grad-accent:linear-gradient(135deg,#386FD8 0%,#5A4BE0 50%,#8342D7 100%);
+  --grad-dark:linear-gradient(180deg,#17072B 0%,#172D67 100%);
+  /* The master sweep, lifted for dark grounds. MEASURED: the light-ground
+     --grad-accent stops fail the 3:1 large-text floor on the hero bands
+     (#386FD8 → 2.99:1 and #8342D7 → 2.57:1 on rgb(19,31,78)). This variant
+     runs #4F8DF0 / #8A83F0 / #A678E8 — 4.49:1, 4.63:1 and 4.55:1 on the
+     darkest hero ground. It is the SAME sweep, still spent once per surface;
+     it is not a second accent. Never use it on a light band. */
+  --grad-accent-on-dark:linear-gradient(135deg,#4F8DF0 0%,#8A83F0 50%,#A678E8 100%);
+  /* Type */
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  /* Radii + spacing */
+  --r-sm:6px; --r-md:10px; --r-lg:14px; --r-xl:20px; --r-2xl:28px; --r-pill:9999px;
+  --shadow-sm:0 1px 2px rgba(16,22,43,.06),0 1px 3px rgba(16,22,43,.08);
+  --shadow-md:0 6px 24px rgba(16,22,43,.10);
+  --shadow-lg:0 24px 60px rgba(16,22,43,.16);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);color:var(--charcoal);background:#fbfbfd;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.55;
+  font-size:16px;
+}
+a{color:var(--royal);text-decoration:none}
+a:hover{color:var(--royal-hover)}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{color:var(--navy);line-height:1.12;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-size:clamp(34px,5vw,58px);font-weight:600}
+h2{font-size:clamp(26px,3.4vw,40px);font-weight:600}
+h3{font-size:clamp(19px,2vw,26px);font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.lead{font-size:clamp(17px,1.6vw,21px);color:#6b7280;line-height:1.5}
+
+/* Layout */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+/* 92px put 184px of dead air between every pair of sections and pushed both
+   pages past 10k/16k of document height. 72px is still generous white space
+   and takes ~1.5 phone screens off each page. */
+section{padding:72px 0}
+.section-sm{padding:56px 0}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--royal-hover);margin-bottom:14px}
+.eyebrow.on-dark{color:var(--blue-tint)}
+.center{text-align:center}
+.muted{color:var(--gray-text)}
+.serif-accent{font-family:var(--serif);font-style:italic;color:var(--violet);font-weight:400}
+
+/* ---- Top nav ---- */
+/* A3-2026-07-30 §14.5(b): the 14px backdrop blur is DELETED and the glass is
+   pre-scrimmed to near-opaque — on index the blur re-composited over the
+   scrolling 1600px hero photograph on every frame, the prime suspect in the
+   hero paint stall. One shared rule, package-wide; no text contrast changes.
+   (workflows' .subnav carries its own blur over a photo-less page — audited,
+   out of finding-1's scope, left unchanged.) */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--hairline)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;gap:28px}
+/* A8 follow-through 2026-08-04 · the LOGO is 38px; the LINK's hit box is 44.
+   MEASURED at 1440 on index.html: the brand anchor was the last sub-44px
+   control in the header at 129 x 38. The nav row is already 49.25px tall — set
+   by the 44px-floor CTA pills — so a 44px brand box costs zero vertical space,
+   which is the identical argument the .nav-links a rule below already makes.
+   The lockup size recorded at §15.12 is unchanged: this touches the anchor,
+   not the image. */
+.nav .brand{display:flex;align-items:center;gap:9px;font-weight:800;min-height:44px}
+/* A4-2026-08-03 §15.12: 26px -> 38px. `brand-tokens.json` states a 32px logo
+   minimum and the nav had been shipping below the brand's own floor; SENSE
+   §3.3's grandfathered sub-32px nav exception is retired, so this is a
+   compliance fix, not a taste change. 38px is chosen inside the owner's
+   38-40px band as the value with the most headroom.
+   MEASURED: the band does NOT grow at 1440px on any of the five pages — its
+   content row is set by the 44px-floor CTA pills, which render at 49.25px, so
+   a 38px brand cell stays inside a box that already exists (74.25px before and
+   after). It does not grow at 390px on index, workflows, signup or xopolis.
+   TWO FAILURES OF THE §15.12 VERIFICATION ARE OPEN AND ARE NOT FIXED HERE:
+   (a) microlab at 390px goes 97.5 -> 120.75 because its longer nav CTA label
+   wraps to a third line once the brand cell is wider (workflows and signup do
+   the same at <=375px); (b) below ~480px the lockup is horizontally CRUSHED —
+   it is a flex item with the default flex-shrink:1, so `width:auto` does not
+   hold the 3.39:1 aspect. That is pre-existing (index measures 55.4% crushed
+   at 390px at 26px) and 38px makes it worse (69.5%), which SENSE §3.3's
+   "Never: stretch" already forbade. No height value fixes it: at 390px the
+   row cannot fit the lockup, the CTA pill and the burger at ANY logo size.
+   The remedy is a mobile nav layout change, which is not locked. */
+.nav .brand img{height:38px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:8px}
+/* 22px was the smallest tap target in the header. The nav's height is already
+   set by the 44px CTA pills, so a 44px link box costs zero vertical space. */
+.nav-links a{color:#37415a;font-weight:600;font-size:14.5px;
+  display:inline-flex;align-items:center;min-height:44px}
+.nav-links a:hover{color:var(--navy)}
+/* A8-2026-08-04 §19.4.1 · the active nav item. Carried by WEIGHT and an
+   underline, never by colour alone — colour as the sole carrier is the
+   defect class this package has already shipped once (README G-41). One
+   shared rule so the four-link rail is byte-identical on every page. */
+.nav-links a[aria-current="page"]{color:var(--navy);font-weight:700;
+  box-shadow:inset 0 -2px 0 0 var(--royal)}
+.nav-cta{margin-left:auto;display:flex;gap:10px;align-items:center}
+.nav-burger{display:none;margin-left:auto;background:none;border:0;font-size:24px;color:var(--navy);cursor:pointer}
+
+/* ---- Buttons ----
+   gap MUST be 0. `display:inline-flex` turns every text node into an anonymous
+   flex item, so a label like "Run one in your <span>fall</span> course" got 8px
+   of gap on BOTH sides of the span and rendered as a visible double-space —
+   measured 275px against a 200px sibling. Icons inside a button take an
+   explicit margin instead. */
+/* min-height is on the BASE class, not sprinkled per page. 12px padding on a
+   15px label composites to 43.69px — a rounding-error miss of the 44px floor
+   that three pages were separately papering over with local overrides and
+   xopolis.html's nav CTA was not. One declaration, every button, every page. */
+.btn{display:inline-flex;align-items:center;gap:0;font-family:var(--font);font-weight:600;font-size:15px;
+  padding:12px 22px;min-height:44px;border-radius:var(--r-pill);border:1px solid transparent;cursor:pointer;transition:.16s ease;text-decoration:none}
+.btn>svg,.btn>.ic{margin-right:8px}
+.btn>.arr{margin-left:8px}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 10px 15px -3px rgba(23,45,103,.18)}
+.btn-primary:hover{background:var(--navy-hover);color:#fff;transform:translateY(-1px) scale(1.02)}
+.btn-accent{background:var(--grad-accent);color:#fff}
+.btn-accent:hover{filter:brightness(1.06);color:#fff;transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:#374151;border-color:#d1d5db}
+.btn-ghost:hover{border-color:#9ca3af;color:#111827;background:#fff}
+.btn-ghost.on-dark{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost.on-dark:hover{background:rgba(255,255,255,.12);border-color:#fff;color:#fff}
+.btn-lg{padding:15px 30px;font-size:16px}
+/* Same gap trap as .btn, plus a 25px tap target. gap:0 + an explicit arrow
+   margin, and vertical padding to clear 44px. */
+.btn-link{color:var(--navy);font-weight:600;display:inline-flex;align-items:center;gap:0;
+  min-height:44px;padding:9px 0}
+.btn-link .arr{margin-left:6px;transition:.16s}.btn-link:hover .arr{transform:translateX(3px)}
+
+/* ---- Hero ---- */
+.hero{position:relative;background:var(--grad-dark);color:#eaf0ff;overflow:hidden;padding:96px 0 88px}
+/* MEASURED: at opacity .55 under a .95 scrim the hero photograph transmitted
+   ~2.75% on the copy edge — a licensed photograph of a professor that nobody
+   could see. Photo to .72 and the scrim eased to .90 / .74 / .44 lifts the
+   right-hand transmission to ~40% while the text edge stays at ~7%. Worst-case
+   check on that edge (a pure-white pixel behind the copy): the ground composites
+   to rgb(29,34,56) and .hero .lead at #c5d2f5 still measures 10.4:1. */
+.hero>img.herobg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;z-index:0;opacity:.72}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(11,16,40,.90) 0%,rgba(16,30,74,.74) 42%,rgba(23,7,43,.44) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(1200px 480px at 78% -10%,rgba(90,75,224,.45),transparent 60%),radial-gradient(800px 420px at 8% 110%,rgba(46,115,234,.30),transparent 55%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{color:#fff}
+/* On-dark variant: the light-ground sweep measured 2.57:1 on the right of the
+   word, under the 3:1 large-text floor. Same sweep, lifted stops. */
+.hero h1 .grad{background:var(--grad-accent-on-dark);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:#c5d2f5;max-width:600px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-figure{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.12)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+/* ---- Logo strip ---- */
+.credstrip{padding:30px 0;border-bottom:1px solid var(--hairline);background:var(--paper)}
+.credstrip .row{display:flex;flex-wrap:wrap;gap:14px 34px;align-items:center;justify-content:center}
+.credstrip .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-text);font-weight:700}
+/* A6-2026-08-03 §17.5.2 — the strip classifies its marks. Each cluster is one
+   label plus the marks it governs; `.row`'s 34px gap separates clusters, the
+   12px gap here binds a label to its own marks. */
+.credstrip .credgrp{display:inline-flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+/* MEASURED: #5a6079 at opacity .85 sampled 4.29:1 — under AA. The partner
+   marks that carry ARTWORK get the grayscale/opacity dim; the ones that are
+   set TYPE do not. An opacity ramp on a 14px label drops it under the floor,
+   and this strip's job is to be read, not to shimmer. Same treatment on all
+   three pages — this component previously rendered at three different
+   contrasts across the package. */
+.cred{font-weight:600;color:var(--gray-text);font-size:14px;letter-spacing:.02em;opacity:1;filter:none}
+.credstrip img{filter:grayscale(1) opacity(.55)}
+@media (prefers-reduced-motion: no-preference){
+  .credstrip img{transition:filter 200ms cubic-bezier(.25,.1,.25,1)}
+}
+.credstrip .row:hover img,.credstrip .row:focus-within img{filter:none}
+
+/* ---- Cards / grids ---- */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--hairline);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);transition:.18s}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:#d5ddf2}
+.card .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:rgba(46,115,234,.10);color:var(--royal);margin-bottom:14px;font-size:20px}
+.card h3{margin-bottom:.35em}
+.card p{color:#56607a;font-size:15px;margin:0}
+
+/* pillar bar */
+.pillars{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--hairline);border-radius:var(--r-lg);overflow:hidden;background:#fff}
+.pillar{flex:1 1 30%;padding:22px 24px;border-right:1px solid var(--hairline)}
+.pillar:last-child{border-right:0}
+.pillar .k{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--violet);text-transform:uppercase}
+.pillar p{margin:.4em 0 0;font-size:14.5px;color:#56607a}
+
+/* feature split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.split.rev .txt{order:2}
+.shot{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline);box-shadow:var(--shadow-md);background:#fff}
+.shot.frame{padding:8px;background:linear-gradient(135deg,#eef2fb,#f7f5ff)}
+.shot.frame img{border-radius:8px}
+
+/* loop band */
+.band-dark{background:var(--grad-dark);color:#eaf0ff}
+.band-dark h2,.band-dark h3{color:#fff}
+.band-dark .lead{color:#c5d2f5}
+.band-tint{background:var(--paper)}
+
+/* testimonial */
+.quote{background:#fff;border:1px solid var(--hairline);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow-sm)}
+.quote .q{font-family:var(--serif);font-size:21px;line-height:1.45;color:var(--navy);font-style:italic;margin-bottom:18px}
+.quote .who{display:flex;align-items:center;gap:12px}
+.quote .who .nm{font-weight:700;color:var(--navy);font-size:15px}
+.quote .who .rl{font-size:13px;color:var(--gray-text)}
+.disclaimer{font-size:12px;color:var(--gray-text);max-width:760px;margin:18px auto 0;text-align:center;font-style:italic}
+.band-dark .disclaimer,.photo-band .disclaimer,.hero .disclaimer{color:#b9c6ea}
+
+/* CTA band */
+.cta-band{background:var(--grad-accent);color:#fff;border-radius:var(--r-2xl);padding:52px;text-align:center;box-shadow:var(--shadow-lg)}
+.cta-band h2{color:#fff}
+.cta-band .lead{color:rgba(255,255,255,.92)}
+.cta-band .btn-primary{background:#fff;color:var(--navy)}
+.cta-band .btn-primary:hover{background:#eef}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:var(--r-pill);background:rgba(131,66,215,.10);color:var(--violet)}
+.badge.navy{background:rgba(23,45,103,.08);color:var(--navy)}
+.badge.synthetic{background:rgba(157,159,162,.16);color:#5a6079}
+
+/* footer */
+.footer{background:var(--indigo-black);color:#b9c2e0;padding:56px 0 34px;font-size:14px}
+.footer a{color:#c7d0ec}.footer a:hover{color:#fff}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:34px}
+.footer h4{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+/* 17px links were the smallest tap target on the site. 11px of padding landed
+   at 43.69px — a rounding-error miss that still fails the floor. Explicit
+   min-height, so it cannot depend on the line box. Measured: 45.69px. */
+.footer ul a{display:inline-block;padding:12px 0;min-height:44px;box-sizing:border-box}
+.footer .logo{height:32px;margin-bottom:14px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#8c97bd}
+
+/* annotation chips for mockup notes */
+.note{font-size:12px;color:#7a6; }
+.proto-tag{position:fixed;bottom:14px;right:14px;z-index:80;background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;padding:7px 13px;border-radius:var(--r-pill);box-shadow:var(--shadow-md);opacity:.9}
+
+/* ===========================================================================
+   v2 ADDITIONS — on-brand imagery treatments + product framing + cohort grid
+   Live site uses NO lifestyle photos (people imagery is net-new): wrap product
+   shots in a faux-browser frame w/ ambient royal→violet glow; scrim any photo
+   that carries white text (navy→indigo). Reasoning rings = cohort seating.
+   =========================================================================== */
+
+/* faux-browser frame for product screenshots (matches live Safari-frame look) */
+.ambient{position:relative}
+.ambient::before{content:"";position:absolute;inset:-8% -6% -12% -6%;z-index:0;
+  background:radial-gradient(60% 60% at 30% 20%,rgba(46,115,234,.45),transparent 70%),radial-gradient(55% 55% at 80% 90%,rgba(131,66,215,.40),transparent 70%);
+  filter:blur(34px);opacity:.7;pointer-events:none}
+.browser{position:relative;z-index:1;border-radius:var(--r-xl);overflow:hidden;background:#fff;border:1px solid var(--hairline);box-shadow:var(--shadow-lg)}
+.browser .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#f4f5f8;border-bottom:1px solid var(--hairline)}
+.browser .bar i{width:11px;height:11px;border-radius:50%;display:block;background:#dfe3ea}
+.browser .bar i:nth-child(1){background:#f3b0ab}.browser .bar i:nth-child(2){background:#f5d9a6}.browser .bar i:nth-child(3){background:#b6e3b8}
+.browser .bar .url{margin-left:10px;font-size:12px;color:#9aa3b5;background:#fff;border:1px solid var(--hairline);border-radius:var(--r-pill);padding:3px 12px}
+.browser img{display:block;width:100%}
+.browser video{display:block;width:100%;background:#0c1330}
+
+/* full-bleed people photo band with navy→indigo scrim (keeps white text legible) */
+.photo-band{position:relative;color:#eaf0ff;overflow:hidden}
+.photo-band>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.photo-band::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,rgba(15,20,46,.92) 0%,rgba(23,45,103,.80) 45%,rgba(23,7,43,.62) 100%)}
+.photo-band .wrap{position:relative;z-index:2}
+.photo-band h2,.photo-band h3{color:#fff}
+.photo-band .lead{color:#cdd8f5}
+.photo-band .eyebrow{color:var(--blue-tint)}
+
+/* rounded people photo card (for splits / accents) */
+.photo-card{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--hairline);background:#fff}
+.photo-card img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-card.tall img{aspect-ratio:4/5}
+.photo-card.wide img{aspect-ratio:16/10}
+.photo-cap{font-size:12px;color:var(--gray-text);margin-top:8px}
+
+/* cohort seating chart — faces inside reasoning-level rings */
+.seat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px 14px}
+.seat{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center}
+.seat .ring{width:60px;height:60px;border-radius:50%;padding:3px;position:relative}
+.seat .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid #fff}
+.seat .nm{font-size:11px;color:#56607a;font-weight:600;line-height:1.1;max-width:74px}
+.r-advanced{background:var(--violet)}
+.r-proficient{background:#2FB67A}
+.r-developing{background:var(--royal)}
+.r-emerging{background:#E0992F}
+.seat .dot{position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;border-radius:50%;border:2px solid #fff}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:#56607a}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+
+/* preview / pre-release badge */
+.badge.preview{background:rgba(46,115,234,.10);color:var(--royal)}
+
+/* responsive */
+@media(max-width:900px){
+  .seat-grid{grid-template-columns:repeat(4,1fr)}
+  .hero-grid,.split,.g3,.g2,.foot-grid{grid-template-columns:1fr}
+  .split.rev .txt{order:0}
+  .nav-links{display:none}
+  .nav-burger{display:block}
+  /* The mobile nav layout change the §15.12 note above asked for, and the two
+     failures it left open, closed. At <=900px the row was still being asked to
+     hold the lockup, TWO CTA pills and the burger: the pills had nowhere to go,
+     so their labels wrapped to three and five lines, the row grew to ~140px and
+     the pills sat ON TOP of the wordmark. Measured at 390px on learning.
+     The ghost pill goes: it is the same "Run one in your fall course" the
+     closing band and the footer both carry, so nothing is lost from the page.
+     The primary pill stays on one line, and the lockup stops shrinking.
+     This tier (tablets) keeps that one pill: MEASURED at 768px it seats the
+     129px lockup, a 155px pill and the 44px burger with room to spare. */
+  .nav-inner{padding:12px 16px;gap:14px}
+  .nav .brand{flex:0 0 auto}
+  .nav-cta .btn-ghost{display:none}
+  .nav-cta .btn,.nav-cta .btn .lbl{white-space:nowrap}
+  .nav-cta .btn{padding:11px 16px;font-size:14px}
+  /* the burger keeps its 44px touch box and must never be the thing that
+     overflows: it is the only route to the nav links at this width. */
+  .nav-burger{flex:0 0 auto}
+  .pillar{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--hairline)}
+  section{padding:64px 0}
+  .cta-band{padding:34px 22px}
+}
+
+/* Phones. MEASURED at 390px (clientW 375): lockup 129 + pill 155 + burger 44
+   + two 14px gaps + 32px padding = 388, which is 13px wider than the viewport,
+   and the burger — the ONLY route to the nav links — is what falls off the
+   right edge. Shrinking the pill does not buy 13px without going under the
+   14px type floor, and shrinking the lockup goes under brand-tokens.json's
+   32px minimum. So the pill goes here and the row becomes lockup + burger,
+   which is the ordinary phone header and fits at every width down to 320px.
+   The action is not lost: the closing band and the footer both carry it. */
+@media(max-width:560px){
+  .nav-cta{display:none}
+}

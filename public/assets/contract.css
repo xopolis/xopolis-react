@@ -1,0 +1,399 @@
+/* ===========================================================================
+   contract.css — shared additions required by DESIGN_CONTRACT.md §6
+   Loaded AFTER brand.css on index.html, workflows.html and xopolis.html.
+   Contains ONLY the cross-page globals the contract mandates:
+     §6.0 progressive-enhancement flag rules
+     §6.6 focus-visible block + scoped motion + reduced-motion
+     §3 .bridge handoff element
+     §18.2.2 .xrcite — the citation-chain component (workflows + index)
+     H-2 no-fabricated-liveness overrides for embedded product illustrations
+   Page-specific components live in each page's own <style> block.
+   Brand tokens are NEVER redefined here.
+   =========================================================================== */
+
+/* ---- §6.0 progressive enhancement ------------------------------------- */
+[data-enhanced] .panel[hidden]{display:none}
+[data-enhanced] .panel-heading{
+  position:absolute;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;
+}
+
+/* ---- skip link --------------------------------------------------------- */
+/* Both class names are supported so no page breaks: `.skip` was the
+   index/workflows convention, `.skip-link` the xopolis one. One rule now. */
+.skip,.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:#fff;color:var(--navy);font-weight:700;
+  padding:12px 18px;border-radius:0 0 var(--r-md) 0;
+}
+.skip:focus,.skip-link:focus{left:0;color:var(--navy)}
+
+/* ---- §3 the handoff / bridge line -------------------------------------- */
+.bridge{
+  font-size:15px;color:var(--gray-text);font-style:italic;text-align:center;
+  max-width:60ch;margin:44px auto 0;line-height:1.5;
+}
+.band-dark .bridge,.photo-band .bridge,.hero .bridge{color:#b9c6ea}
+
+/* ---- badges on dark surfaces -------------------------------------------
+   .badge and .badge.synthetic are light-surface tokens (violet-on-violet at
+   2.17:1 and grey-on-grey when they land on a dark band). These variants are
+   defined ONCE here so all three pages inherit the fix. */
+.badge.on-dark{background:rgba(255,255,255,.12);color:#dbe6ff}
+.hero .badge.synthetic,
+.band-dark .badge.synthetic,
+.photo-band .badge.synthetic{background:rgba(255,255,255,.12);color:#cdd8f5}
+
+/* ---- one testimonial treatment on a dark band --------------------------
+   The same quote must not be a white card on one page and a glass card on
+   the next. Glass is the dark-band treatment, everywhere. */
+.band-dark .quote,.photo-band .quote{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);box-shadow:none;
+}
+.band-dark .quote .q,.photo-band .quote .q{color:#fff}
+.band-dark .quote .who .nm,.photo-band .quote .who .nm{color:#fff}
+.band-dark .quote .who .rl,.photo-band .quote .who .rl{color:#b9c6ea}
+
+/* ---- faculty headshots, package-wide -----------------------------------
+   A8 follow-through, same defect and same fix as `.footer h3` below. index
+   and workflows each carried a private copy of this rule; learning.html
+   received the Goulding attribution block BY MOVE and did not receive the
+   rule, because it never lived in a shared sheet to move with. The headshot
+   therefore rendered at its natural 256x256 — a square, uncropped, unbordered
+   photo where every other faculty headshot in the package is a 56px circle —
+   and at 390 it pushed the name and role clean off the viewport, giving the
+   document 3px of horizontal scroll.
+
+   Promoted rather than copied a third time: learning.html's own style block
+   states that nothing shared is duplicated in it, and a third copy would make
+   that false. No shared sheet sizes `.quote .who img`, so nothing competes;
+   the declarations are byte-identical to the two page-local copies they
+   replace and the rendering is unchanged on index and workflows. */
+.hs{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:0 0 auto}
+.hs.lg{width:56px;height:56px}
+.quote .who{align-items:center}
+
+/* ---- §6.6 focus rings (brand.css ships none) ---------------------------
+   NO `border-radius:inherit` HERE. :where() is zero-specificity, so this rule
+   weighs (0,1,0) — an exact tie with .btn (0,1,0) — and wins on source order
+   because contract.css loads after brand.css. `border-radius:inherit` therefore
+   resolved against the PARENT (0px) and squared off every pill on the site the
+   moment it took keyboard focus: verified on .btn-primary (9999px unfocused,
+   0px focused), the skip link, every .door-tab and every summary pill. It was
+   invisible to mouse users and hit only the population the rule exists for.
+   Modern engines already draw `outline` following the element's own
+   border-radius, so nothing is lost by deleting it. */
+:where(a,button,.btn,summary,input,select,textarea,[tabindex]):focus-visible{
+  outline:2px solid var(--royal);
+  outline-offset:2px;
+}
+.hero :where(a,button,.btn,summary):focus-visible,
+.band-dark :where(a,button,.btn,summary):focus-visible,
+.photo-band :where(a,button,.btn,summary):focus-visible,
+.cta-band :where(a,button,.btn,summary):focus-visible,
+.footer :where(a,button,.btn,summary):focus-visible{outline-color:#FFFFFF}
+
+/* ---- §7.3 the P0 ghost-button fix, re-asserted ------------------------- */
+.btn-ghost.on-dark{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost.on-dark:hover{background:rgba(255,255,255,.12);border-color:#fff;color:#fff}
+
+/* ---- video poster fallback --------------------------------------------
+   The base state lives HERE, not as an inline `style="display:none"` on the
+   element. An inline declaration beats any stylesheet rule, so the reduced-
+   motion swap below could never fire and a reduce-motion reader was left with
+   a 50px browser stub: the fake title bar and nothing else.
+
+   SPECIFICITY, MEASURED: a bare `.poster-fallback` (0,1,0) LOSES to brand.css's
+   `.browser img` (0,1,1) regardless of source order, so in the DEFAULT
+   no-preference state the poster rendered at full size (509x357) directly
+   beneath the playing video and every reader saw the knowledge graph twice.
+   Both the hide and the reveal are therefore written at `.browser img`
+   strength or better. */
+.poster-fallback,
+.browser img.poster-fallback{display:none}
+
+/* ---- §6.6 motion is scoped, never global ------------------------------- */
+@media (prefers-reduced-motion: no-preference){
+  .panel{transition:opacity 200ms cubic-bezier(0,0,.2,1)}
+  .drawer{transition:grid-template-rows 200ms cubic-bezier(0,0,.2,1)}
+  .card,.btn{transition:transform .16s cubic-bezier(.25,.1,.25,1),
+                        box-shadow .16s cubic-bezier(.25,.1,.25,1)}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+  html{scroll-behavior:auto}
+  /* The CSS blanket cannot stop a <video autoplay>. With JS disabled the
+     script that pauses it never runs, so a user who asked for no motion gets
+     a looping video. Swap the element for its own poster, in CSS. Both halves
+     are written at or above `.browser img` / `.browser video` strength. */
+  video[data-graph],
+  .browser video[data-graph]{display:none}
+  video[data-graph] ~ .poster-fallback,
+  .browser video[data-graph] ~ img.poster-fallback{display:block}
+}
+
+/* ---- shared primitives folded in from the deleted brand-v3.css ----------
+   One shim, not three. brand-v3.css and the inline duplicate in
+   workflows.html are gone; everything they uniquely contributed is here. */
+
+/* tablist / tab — REMOVED, owner review 2026-08-06 pass 3A (X12). These rules
+   were scoped `.wow` for the xopolis World of Work selector, which was the only
+   caller in the package. That component is now the construct-library door and
+   it is BUILT BY SCRIPT, so it cannot depend on a shared stylesheet that a
+   reader's browser may still be serving from cache under the old selector — the
+   chips would fall back to inline-block and stack. The primitives moved into
+   xopolis.html's own <style>, next to the component they belong to. Do not add
+   a page-agnostic tablist here without a second caller to justify it.
+   `[role="tabpanel"]` stays: it is generic and costs one declaration. */
+[role="tabpanel"]{outline-offset:4px}
+
+/* <details> drawer primitives — 0fr → 1fr, never max-height */
+details.dr{border:1px solid var(--hairline);border-radius:var(--r-lg);background:#fff}
+details.dr>summary{list-style:none;cursor:pointer;padding:18px 22px;min-height:44px;
+  display:flex;align-items:center;gap:10px;font-weight:600;color:var(--navy);font-size:15px}
+details.dr>summary::-webkit-details-marker{display:none}
+details.dr>summary .chev{margin-left:auto;color:var(--royal);font-size:13px;font-weight:700;
+  display:inline-block}
+details.dr[open]>summary .chev{transform:rotate(180deg)}
+details.dr[open]>summary .lbl-closed{display:none}
+details.dr:not([open])>summary .lbl-open{display:none}
+details.dr .drawer{display:grid;grid-template-rows:0fr}
+details.dr[open]>.drawer{grid-template-rows:1fr}
+details.dr .drawer>.inner{min-height:0;overflow:hidden}
+
+/* pillar bar on a dark band */
+.pillars.on-dark{background:transparent;border-color:rgba(255,255,255,.20)}
+.pillars.on-dark .pillar{border-right-color:rgba(255,255,255,.20)}
+/* --violet-light #A678E8 measures 3.99:1 on navy at 12px/800 — under AA. */
+.pillars.on-dark .pillar .k{color:#C6A6F5}
+.pillars.on-dark .pillar p{color:#c5d2f5}
+@media(max-width:900px){
+  .pillars.on-dark .pillar{border-bottom-color:rgba(255,255,255,.20)}
+}
+
+/* visually hidden */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ---- footer column headings, package-wide ------------------------------
+   brand.css styles them as h4. Every page in this package ends <main> on an
+   h2, so an h4 in the footer skips a level in the document outline. index and
+   workflows each carried a private copy of this rule; microlab and signup did
+   not, and shipped the skip. One rule, all five pages. Identical rendering. */
+.footer h3{color:#fff;font-size:13px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;margin-bottom:14px}
+
+/* ---- A11-2026-08-06 · X1 · the parent-company line, package-wide --------
+   "A product of Xopolis Inc. · xopol.is" shipped four different ways: index
+   had the 12.5px/#8c97bd inline pair and NO link at all; signup and microlab
+   had the inline pair plus a link; workflows and learning had the link but
+   inherited 14px/#b9c2e0. Same defect and same fix as `.footer h3` above —
+   one rule, all five pages.
+
+   The link is underlined. brand.css sets a{text-decoration:none} globally, so
+   on a 12.5px muted line the only affordance was #c7d0ec against #8c97bd:
+   two greys a shade apart, which is how a live link reads as dead text. The
+   underline is what makes it look like the link it always was. */
+.footer .parent-line{font-size:12.5px;color:#8c97bd}
+.footer .parent-line a,
+.footer .contact-line a,
+.footer .foot-bottom a{color:#c7d0ec;text-decoration:underline;
+  text-decoration-thickness:1px;text-underline-offset:2px}
+.footer .parent-line a:hover,
+.footer .contact-line a:hover,
+.footer .foot-bottom a:hover{color:#fff}
+
+/* ---- the burger is a control, not a glyph ------------------------------
+   34x34 measured at 390px on workflows / microlab / signup. index carried a
+   private 44px rule; the other three did not. */
+.nav-burger{min-width:44px;min-height:44px;line-height:1;display:none}
+@media(max-width:900px){.nav-burger{display:block}}
+
+/* ---- H-2 · no fabricated liveness on a marketing surface ---------------
+   The embedded product illustrations (assets/ui-kit.css) animate a mic ring,
+   a status dot, a waveform and a streaming caret because the real product
+   does. On a marketing page those read as simulated liveness, which rule H-2
+   forbids. Freeze them: the depiction stays, the theatre goes.
+   ------------------------------------------------------------------------ */
+.ui-voice-ring,
+.ui-voice-dot,
+.ui-voice-wave i,
+.ui-ta-cursor,
+.ui-cv-spin{animation:none!important}
+.ui-voice-ring{opacity:.28!important;transform:none!important}
+.ui-voice-wave i{transform:scaleY(.55)!important}
+
+/* ---- A-2026-07-30 · EDUCAUSE presence strip (R1) -----------------------
+   TIME-BOXED with the strip itself: the strip's HTML comment on index.html
+   and xopolis.html carries the removal date. When the strip comes off the
+   pages, delete this block on sight — no other edit is needed. */
+.event-strip{background:var(--off-white);border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);padding:14px 0;text-align:center}
+.event-strip p{margin:0;font-size:15px;line-height:1.5;color:var(--charcoal)}
+/* A10-2026-08-06 · `white-space:nowrap` on a 302px span forced the document to
+   340px against a 320px viewport, so every page carrying the strip scrolled
+   sideways and the hero band stopped short of the right edge. Found twice,
+   independently, by the Wave 4 verifiers. The date needs to hold together, the
+   whole string does not: nowrap moves to the segments, and the line may wrap
+   between them. */
+.event-strip .event-when{font-weight:600;color:var(--navy);margin-right:10px}
+.event-strip .event-when > *{white-space:nowrap}
+/* A2-2026-07-30 ·13.2: the banner instance under the nav on index.html.
+   Spacing/border only — the nav already draws the hairline above it, so the
+   strip drops its own top rule. Tokens, sizes and colors are the strip's.
+   Dies with the strip on the same date. */
+.event-strip--top{border-top:0}
+
+/* ---- A3-2026-07-30 §14.2 · the pillar bar ------------------------------
+   Moved verbatim from index.html's page styles: after the hero diet its
+   surviving render is the S12 footer (index / workflows / microlab / signup),
+   so the component must be cross-page. Spacing may flex at build; tokens,
+   size, tracking and colour may not. --blue-tint #7EA9F2 on the footer's
+   --indigo-black #17072B measures ≈7:1 — AA-clean at this size and weight. */
+.pillarbar{margin:26px 0 0;font-size:12.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--blue-tint);line-height:1.7}
+.pillarbar .sep{color:rgba(126,169,242,.55);margin:0 6px}
+.footer .pillarbar{margin:14px 0 16px}
+
+/* ---- A7-2026-08-04 §18.2.2 · THE CITATION CHAIN COMPONENT ---------------
+   Replaces §15.2's four-element evidence block on every marketing page. It is
+   three things and nothing else: a pull-quote from one of OUR essays, the
+   essay's title, and the link. No study, no author, no year, no DOI, no
+   effect size, no disclaimer sentence, no drawer.
+
+   It lives HERE rather than in a page's own <style> because it renders on two
+   pages (workflows.html and index.html) and §18.2.2 rule 6 requires it to
+   render in the marketing package's own type and colour on both. One
+   definition is the only way that is checkable.
+
+   THE FENCE (§18.1.2): not one --xr-* token appears in this block. The
+   sub-brand's paper, ink, accent and four edge colours are confined to
+   mockup/xresearch/**. This component POINTS AT the library; it is not a
+   piece of it. The violet rule is the marketing package's own --violet, the
+   same accent X2's xResearch card carries on xopolis.html.
+
+   §18.2.2 rule 3 is enforced by the copy, not by CSS, and it is the whole of
+   the §7.2 boundary: a pull-quote contains no digit. If you can see one here,
+   it is wrong. */
+.xrcite{
+  margin:28px 0 0;padding:2px 0 2px 20px;max-width:76ch;
+  border-left:3px solid var(--violet);
+}
+.xrcite .xrq{
+  margin:0;font-size:17px;line-height:1.5;font-weight:600;
+  color:var(--navy);letter-spacing:-.005em;
+}
+.xrcite .xrsrc{margin:13px 0 0;font-size:13.5px;line-height:1.5}
+.xrcite .xrsrc a{
+  color:var(--royal);font-weight:600;text-decoration:none;
+  border-bottom:1px solid rgba(46,115,234,.35);
+}
+.xrcite .xrsrc a:hover{border-bottom-color:var(--royal)}
+/* The separator is a 1px rule, not a middot glyph: generated content lands in
+   the accessibility tree in some engines, and "middle dot" between a title and
+   a source name is noise a screen-reader user did not ask for. */
+.xrcite .xrsrc-k{
+  color:var(--gray-text);font-weight:600;letter-spacing:.02em;
+  margin-left:12px;padding-left:12px;border-left:1px solid var(--hairline);
+}
+/* Below 560px the title and the source name stop sharing a line; the rule
+   would then draw across the start of a wrapped line, so it comes off. */
+@media(max-width:560px){
+  .xrcite .xrsrc-k{display:block;margin:6px 0 0;padding:0;border-left:0}
+}
+
+/* ---- A3-2026-07-30 · index-only air: rhythm 72 -> 96.
+   brand.css's shared section{padding:72px 0} (and its 64px mobile override)
+   is untouched — every other page keeps the 72/64 rhythm.
+
+   A8-2026-08-04 §19.3.5 · THE WHITESPACE DEFECT, MEASURED AND FIXED.
+   The owner reported "all kinds of weird white space" on this page. It was
+   not a symptom of the IA and the restructure does not discharge it; it was
+   two concrete layout faults, and here are the numbers.
+
+   OFFENDER 1 — #evidence carried padding:144px 0 against every other
+   section's 96. That is 96px of extra air on one section. §14.4 granted it
+   as a "solo viewport" treatment, correctly, when #evidence was the only
+   thing between two short bands. A8 puts two large door cards directly above
+   it, so it is no longer solo and the grant no longer describes the page.
+   MEASURED at 1440: section height 987px, of which 288px was padding.
+   Reverted to the page rhythm: 96/96. Saved 96px.
+
+   OFFENDER 2 — the Rollag band and the FAQ band are BOTH .band-tint and they
+   are adjacent, so 96px of bottom padding met 96px of top padding across an
+   invisible seam: 192px of unbroken tint reading as a void, with no change of
+   ground to explain it. MEASURED at 1440: 192px between the last line of one
+   and the first of the next. Collapsed to 56 + 56 = 112px. Saved 80px.
+
+   Total saved at 1440: 176px, all of it dead. No content is removed and no
+   rhythm is broken — every remaining section is on the 96 grid.
+
+   A8 FOLLOW-THROUGH, 2026-08-04 · TWO SEAMS THE FIRST PASS MISSED. Re-measured
+   at 1440 AND at 390, which is where both of these live.
+
+   OFFENDER 3 — #doors meets #evidence and BOTH are transparent over --paper.
+   That is offender 2's defect on the white ground instead of the tinted one,
+   and the first fix could not catch it because it was written against
+   `.band-tint + .band-tint` — the class, not the condition. The condition is
+   "same ground, no change to explain the void". MEASURED at 1440: 96 + 96 =
+   192px of unbroken paper between the `.bridge` line that hands #doors into
+   #evidence and the H2 it hands to. A hand-off sentence separated from its
+   destination by 192px is the exact defect the owner reported. Collapsed to
+   56 + 56 = 112px. Saved 80px at 1440.
+
+   OFFENDER 4 — offender 2 was never fixed on mobile. The whole rule above is
+   fenced to min-width:901px, so at 390 the two adjacent .band-tint bands still
+   met at 64 + 64 = 128px of unbroken tint. So did #doors/#evidence. The mobile
+   block below applies the same condition at the mobile rhythm: 64 -> 40 on the
+   seam side only, the same 0.58 ratio the desktop fix uses. MEASURED at 390:
+   128px -> 80px on each of the two same-ground seams. Saved 96px at 390.
+
+   In both breakpoints only the SEAM side of each pair moves. #doors keeps its
+   96/64 top pad (it meets .credstrip, a real change of ground) and #evidence
+   keeps its bottom pad (it meets .band-tint, likewise). If a section is ever
+   inserted between either pair the adjacency selector stops matching and both
+   revert to the full page rhythm, which is the correct behaviour and the reason
+   this is written as adjacency rather than as an id override. */
+@media(min-width:901px){
+  .page-index main>section:not(.hero){padding:96px 0}
+  /* Two same-ground bands in a row do not get two full pads across the seam. */
+  .page-index main>section.band-tint + section.band-tint{padding-top:56px}
+  .page-index main>section.band-tint:has(+ section.band-tint){padding-bottom:56px}
+  /* Same condition, paper ground. */
+  .page-index main>section#doors + section#evidence{padding-top:56px}
+  .page-index main>section#doors:has(+ section#evidence){padding-bottom:56px}
+}
+@media(max-width:900px){
+  /* brand.css's 64px mobile rhythm stands; only the two same-ground seams
+     collapse. Nothing else on the page changes at this breakpoint. */
+  .page-index main>section.band-tint + section.band-tint{padding-top:40px}
+  .page-index main>section.band-tint:has(+ section.band-tint){padding-bottom:40px}
+  .page-index main>section#doors + section#evidence{padding-top:40px}
+  .page-index main>section#doors:has(+ section#evidence){padding-bottom:40px}
+}
+
+/* ---- A4-2026-08-03 · CLAIM-GATE REVIEW CSS · DELETE AT PUBLISH (§15.1.3 step 8)
+   The ONLY thing this block does is let a reviewer flip <body data-claim-stage>
+   from "published" to "preview" and see the write-forward blocks. It is review
+   convenience: the publish mechanism is DELETION of the unmet block by the
+   §15.1.3 sweep, because a hidden false claim is still in the source a crawler
+   reads. This whole fence, the data-claim-stage attributes and every
+   data-claim-gate / data-claim-fallback-for leave the package at publish. */
+[data-claim-stage="published"] [data-claim-gate]{display:none}
+[data-claim-stage="published"] .gatechip{display:none}
+/* A6-2026-08-03 §17.8.2 — the third state. A gate whose ledger row is
+   OWNER-ATTESTED, and whose attestation is recorded in §15.1.1, RENDERS in the
+   published stage. It is still gated, still fenced, still swept, and still
+   deleted if the attestation is withdrawn. data-claim-attested is never
+   applied without a recorded attestation and never to a BLOCKED row. */
+[data-claim-stage="published"] [data-claim-gate][data-claim-attested="true"]{display:revert}
+[data-claim-stage="published"] [data-claim-fallback-for][data-claim-superseded="true"]{display:none}
+[data-claim-stage="preview"]   [data-claim-gate][data-claim-attested="true"] .gatechip{display:inline-block}
+[data-claim-stage="preview"]   [data-claim-fallback-for]{display:none}
+[data-claim-stage="preview"]   .gatechip{display:inline-block;font:700 11px/1 Inter,sans-serif;
+  letter-spacing:.08em;text-transform:uppercase;color:#7A4B00;background:#FFF3D6;
+  border:1px solid #E9C46A;border-radius:999px;padding:5px 9px;margin:0 0 10px}
+/* ---- end claim-gate review CSS ---------------------------------------- */

@@ -1,0 +1,23 @@
+/*    /index.html   200
+# Xopolis Corporate Website - Netlify Redirects
+# xopol.is deployment
+
+# Handle non-www to www redirect (if needed)
+# Note: Configure this in Netlify domain settings for better performance
+
+# Platform pages - clean URLs
+/heurisight    /platforms/heurisight.html    200
+/protobots     /platforms/protobots.html     200
+/xresearch     /platforms/xresearch.html     200
+
+# Research section
+/research      /research/index.html          200
+
+# Government section
+/government    /government/index.html        200
+
+# TokoSmart product page
+/tokosmart     /tokosmart.html               200
+
+# SPA fallback for any unmatched routes
+/*             /index.html                   200
