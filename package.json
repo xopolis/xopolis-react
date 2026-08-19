@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node prerender.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prerender": "node prerender.mjs",
+    "build:spa": "tsc -b && vite build"
   },
   "dependencies": {
     "framer-motion": "^13.1.0",
@@ -21,6 +23,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
+    "puppeteer": "^25.8.0",
     "typescript": "~6.0.2",
     "vite": "^8.2.0"
   }

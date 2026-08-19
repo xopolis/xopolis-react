@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://xopol.is/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://xopol.is/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/privacy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/terms</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/tokosmart</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/platforms/heurisight</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/platforms/protobots</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/platforms/xresearch</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/research</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xopol.is/government</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

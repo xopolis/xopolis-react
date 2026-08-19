@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion, MotionConfig } from 'framer-
 import { Sprite } from './components/Sprite'
 import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
+import { Seo } from './components/Seo'
 import { pageTransition } from './lib/animations'
 import Home from './pages/Home'
 
@@ -66,6 +67,7 @@ export default function App() {
   useScrollBehaviour()
   return (
     <MotionConfig reducedMotion="user">
+      <Seo />
       <Sprite />
       <Nav />
       <AnimatedRoutes />

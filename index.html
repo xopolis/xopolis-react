@@ -4,7 +4,53 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Xopolis Inc — systems that extend what people can judge. HeuriSight, ProtoBots, and xResearch." />
+    <meta name="theme-color" content="#17072b" />
+
+    <!-- Default SEO (per-route values are set by src/components/Seo.tsx). -->
+    <meta name="description" content="Xopolis builds software that captures expert reasoning and makes it inspectable — in classrooms, inside organizations, and in applied research. Three platforms: HeuriSight, ProtoBots and xResearch." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://xopol.is/" />
+
+    <!-- Open Graph / Twitter defaults -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Xopolis Inc" />
+    <meta property="og:title" content="Xopolis Inc — Systems that extend what people can judge" />
+    <meta property="og:description" content="Software that captures expert reasoning and makes it inspectable — across classrooms, organizations and applied research. HeuriSight, ProtoBots and xResearch." />
+    <meta property="og:url" content="https://xopol.is/" />
+    <meta property="og:image" content="https://xopol.is/assets/photos/instructor-lecture-hall-1600.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Xopolis Inc — Systems that extend what people can judge" />
+    <meta name="twitter:description" content="Software that captures expert reasoning and makes it inspectable — across classrooms, organizations and applied research." />
+    <meta name="twitter:image" content="https://xopol.is/assets/photos/instructor-lecture-hall-1600.jpg" />
+
+    <!-- Structured data: Organization + WebSite (static so non-JS crawlers see it) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Xopolis Inc",
+        "legalName": "Xopolis Inc",
+        "url": "https://xopol.is",
+        "logo": "https://xopol.is/assets/xopolis-logo.svg",
+        "email": "support@xopol.is",
+        "foundingDate": "2017-07-06",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Herndon",
+          "addressRegion": "VA",
+          "addressCountry": "US"
+        },
+        "sameAs": ["https://heurisight.com", "https://www.protobots.ai"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Xopolis Inc",
+        "url": "https://xopol.is"
+      }
+    </script>
 
     <!-- Shared design system, loaded exactly as the static site does -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
