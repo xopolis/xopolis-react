@@ -1,0 +1,44 @@
+name: CI (build · prerender · SEO check)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # System libraries so the prerender's headless Chromium launches reliably
+      # (works on both ubuntu-22 `libasound2` and ubuntu-24 `libasound2t64`).
+      - name: Install Chromium system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 \
+            libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 \
+            libpango-1.0-0 libcairo2 libatspi2.0-0 libasound2t64 \
+          || sudo apt-get install -y libasound2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (tsc + vite + prerender)
+        run: npm run build
+
+      - name: Assert SEO / prerender output
+        run: node scripts/check-seo.mjs
+
+      - name: Upload prerendered site
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 14
